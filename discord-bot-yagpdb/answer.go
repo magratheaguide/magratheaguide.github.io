@@ -6,3 +6,4 @@
 {{$question := $questionEmbed.Title}}
 {{$footer := $questionEmbed.Footer}}
 {{editMessage nil $id (cembed "title" $question "color" $color "description" $answer "footer" $footer)}}
+{{deleteAllMessageReactions nil $id}}
