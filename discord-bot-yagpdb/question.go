@@ -1,1 +1,6 @@
-{{$question := (joinStr " " .CmdArgs)}}{{ $embed := cembed "title" $question "footer" (sdict "text" (joinStr " " "Message ID:" .Message.ID)) "color" 16711680}}{{$id := sendMessageRetID nil $embed }}{{$x := getMessage nil $id}}{{$y := (index $x.Embeds 0)}}{{sendMessage nil $y.Title}}{{editMessage nil $id (cembed "title" $y.Title "footer" (sdict "text" (joinStr " " "Message ID:" $id)))}}
+{{$question := (joinStr " " .CmdArgs)}}
+{{$color := 16711680}}
+{{$footerText := "Message ID:"}}
+{{ $embed := cembed "title" $question "color" $color "footer" (sdict "text" $footerText)}}
+{{$id := sendMessageRetID nil $embed }}
+{{editMessage nil $id (cembed "title" $question "color" $color "footer" (sdict "text" (joinStr " " $footerText $id)))}}
