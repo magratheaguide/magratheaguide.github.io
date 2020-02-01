@@ -1,0 +1,11 @@
+{{ if not .ExecData }}
+{{ $id := (index .CmdArgs 0) }}
+{{/* $pingList := (joinStr " " (slice .CmdArgs 1)) */}}
+{{/* $questionMsg := getMessage nil $id */}}
+{{/* $questionEmbed := (index $questionMsg.Embeds 0) */}}
+{{ execCC 4 nil 0 (sdict "id" $id "caller" 3 ) }}
+{{ end }}
+
+{{ if .ExecData }}
+{{ sendMessage nil (json .ExecData.extract) }}
+{{ end }}
