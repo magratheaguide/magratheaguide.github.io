@@ -1,10 +1,25 @@
+{{/* first get the embed pieces by calling embedExtract*/}}
+{{ if not .ExecData }}
 {{ $id := (index .CmdArgs 0) }}
 {{ $answer := (joinStr " " (slice .CmdArgs 1)) }}
+{{ execCC 4 nil 0 (sdict "id" $id "caller" 2 "args" $answer ) }}
+{{ end }}
+
+{{/* embedExtract calls back with the extracted pieces */}}
+{{ if .ExecData }}
+{{ $id := .ExecData.id }}
+{{ $extract := .ExecData.extract }}
+{{ $answer := .ExecData.args }}
 {{ $color := 16776960 }}
-{{ $icon := (joinStr "" "https://cdn.discordapp.com/icons/" (toString .Guild.ID) "/" .Guild.Icon ".png") }}
-{{ $questionMsg := getMessage nil $id }}
-{{ $questionEmbed := (index $questionMsg.Embeds 0) }}
-{{ $question := $questionEmbed.Title }}
-{{ $footer := $questionEmbed.Footer }}
-{{ editMessage nil $id (cembed "title" $question "color" $color "description" $answer "thumbnail" (sdict "url" $icon) "footer" $footer) }}
+
+{{/* pull info on user answering question */}}
+{{ $nickname := .User.Username }}
+{{ if (getMember .User.ID).Nick }}
+{{ $nickname := (getMember .User.ID).Nick }}
+{{ end }}
+{{ $avatar := (joinStr "" "https://cdn.discordapp.com/avatars/" (toString .User.ID) "/" .User.Avatar ".png") }}
+
+{{/* add answer */}}
+{{ editMessage nil $id (cembed "title" $extract.title "description" $answer "color" $color "footer" $extract.footer "author" (sdict "name" $nickname "icon_url" $avatar) "fields" $extract.fields) }}
 {{ deleteAllMessageReactions nil $id }}
+{{ end }}

@@ -53,4 +53,4 @@
 {{ end }}
 
 {{/* send the pieces back to the calling command */}}
-{{ execCC $caller nil 0 (sdict "extract" $extract "args" $callerArgs) }}
+{{ execCC $caller nil 0 (sdict "id" $id "extract" $extract "args" $callerArgs) }}

@@ -10,12 +10,5 @@
 {{ $id := .ExecData.id }}
 {{ $extract := .ExecData.extract }}
 {{ $pingList := .ExecData.args }}
-{{ $firstMention := (reFind "<@!\\d+>" $pingList) }}
-{{ $mentionUser := (userArg $firstMention) }}
-{{ $nickname := $mentionUser.Username }}
-{{ if (getMember $mentionUser.ID).Nick }}
-{{ $nickname := (getMember $mentionUser.ID).Nick }}
-{{ end }}
-{{ $avatar := (joinStr "" "https://cdn.discordapp.com/avatars/" (toString $mentionUser.ID) "/" $mentionUser.Avatar ".png") }}
-{{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" $extract.color "footer" $extract.footer "author" (sdict "name" $nickname "icon_url" $avatar) "fields" (cslice (sdict "name" "Asked by" "value" $pingList "inline" true))) }}
+{{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" $extract.color "footer" $extract.footer "author" $extract.author "fields" (cslice (sdict "name" "Asked by" "value" $pingList "inline" true))) }}
 {{ end }}
