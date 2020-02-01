@@ -1,0 +1,24 @@
+{{ $thisCmd := 6 }}
+{{ $extractCmd := 4 }}
+
+{{ $threshold := 1 }}
+{{ $countFor := 0 }}
+
+{{ if not .ExecData }}
+{{ range .ReactionMessage.Reactions }}
+{{ if eq .Emoji.Name "✅" }}
+{{ $countFor = .Count }}
+{{ end }}
+{{ end }}
+
+{{ if ge $countFor $threshold }}
+{{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd) }}
+{{ end }}
+{{ end }}
+
+{{ if .ExecData }}
+{{ $id := .ExecData.id }}
+{{ $extract := .ExecData.extract }}
+
+{{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" 1879160 "footer" $extract.footer "author" $extract.author "fields" $extract.fields) }}
+{{ end }}
