@@ -1,11 +1,13 @@
+{{/* first get the embed pieces by calling embedExtract*/}}
 {{ if not .ExecData }}
 {{ $id := (index .CmdArgs 0) }}
-{{/* $pingList := (joinStr " " (slice .CmdArgs 1)) */}}
-{{/* $questionMsg := getMessage nil $id */}}
-{{/* $questionEmbed := (index $questionMsg.Embeds 0) */}}
-{{ execCC 4 nil 0 (sdict "id" $id "caller" 3 ) }}
+{{ $pingList := (joinStr " " (slice .CmdArgs 1)) }}
+{{ execCC 4 nil 0 (sdict "id" $id "caller" 3 "args" $pingList ) }}
 {{ end }}
 
+{{/* embedExtract calls back with the extracted pieces */}}
 {{ if .ExecData }}
-{{ sendMessage nil (json .ExecData.extract) }}
+{{ $extract := .ExecData.extract }}
+{{ $pingList := .ExecData.args }}
+{{ sendMessage nil (cembed "title" $extract.title "description" $extract.description "color" $extract.color "footer" $extract.footer "thumbnail" $extract.thumbnail "fields" (cslice (sdict "name" "Asked by" "value" $pingList "inline" true))) }}
 {{ end }}
