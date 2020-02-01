@@ -1,8 +1,11 @@
+{{ $thisCmd := 3 }}
+{{ $extractCmd := 4 }}
+
 {{/* first get the embed pieces by calling embedExtract*/}}
 {{ if not .ExecData }}
 {{ $id := (index .CmdArgs 0) }}
 {{ $askList := (joinStr " " (slice .CmdArgs 1)) }}
-{{ execCC 4 nil 0 (sdict "id" $id "caller" 3 "args" $askList ) }}
+{{ execCC $extractCmd nil 0 (sdict "id" $id "caller" $thisCmd "args" $askList ) }}
 {{ end }}
 
 {{/* embedExtract calls back with the extracted pieces */}}
