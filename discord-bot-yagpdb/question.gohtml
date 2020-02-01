@@ -3,5 +3,5 @@
 {{ $footerText := "Message ID:" }}
 {{ $embed := cembed "title" $question }}
 {{ $id := sendMessageRetID nil $embed }}
-{{ $embed := cembed "title" $question "color" $color "footer" (sdict "text" (joinStr " " $footerText $id)) "fields" (cslice (sdict "name" "Asked by" "value" .User.Mention "inline" true)) }}
+{{ $embed := cembed "title" $question "color" $color "footer" (sdict "text" (joinStr " " $footerText $id)) "fields" (cslice (sdict "name" "Asked By" "value" .User.Mention "inline" true)) }}
 {{ editMessage nil $id $embed }}

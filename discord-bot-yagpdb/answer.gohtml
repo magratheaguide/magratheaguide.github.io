@@ -12,14 +12,18 @@
 {{ $answer := .ExecData.args }}
 {{ $color := 16776960 }}
 
-{{/* pull info on user answering question */}}
-{{ $nickname := .User.Username }}
-{{ if (getMember .User.ID).Nick }}
-{{ $nickname := (getMember .User.ID).Nick }}
+{{/* pull info for answered by field */}}
+{{ $answeredByName := "Answered By" }}
+{{ $oldFields := $extract.fields }}
+{{ $newFields := (cslice (sdict "name" $answeredByName "value" .User.Mention "inline" true)) }}
+
+{{ range $index, $element := $oldFields }}
+{{ if (ne (toString $element.Name) $answeredByName) }}
+{{ $newFields = $newFields.Append (sdict "name" $element.Name "value" $element.Value "inline" $element.Inline) }}
 {{ end }}
-{{ $avatar := (joinStr "" "https://cdn.discordapp.com/avatars/" (toString .User.ID) "/" .User.Avatar ".png") }}
+{{ end }}
 
 {{/* add answer */}}
-{{ editMessage nil $id (cembed "title" $extract.title "description" $answer "color" $color "footer" $extract.footer "author" (sdict "name" $nickname "icon_url" $avatar) "fields" $extract.fields) }}
+{{ editMessage nil $id (cembed "title" $extract.title "description" $answer "color" $color "footer" $extract.footer "fields" $newFields) }}
 {{ deleteAllMessageReactions nil $id }}
 {{ end }}
