@@ -1,0 +1,8 @@
+{{ $question := (joinStr " " .CmdArgs) }}
+{{ $color := 16711680 }}
+{{ $footerText := "Message ID:" }}
+{{ $icon := (joinStr "" "https://cdn.discordapp.com/icons/" (toString .Guild.ID) "/" .Guild.Icon ".png") }}
+{{ $embed := cembed "title" $question }}
+{{ $id := sendMessageRetID nil $embed }}
+{{ $embed := cembed "title" $question "color" $color "thumbnail" (sdict "url" $icon) "footer" (sdict "text" (joinStr " " $footerText $id)) }}
+{{ editMessage nil $id $embed }}
