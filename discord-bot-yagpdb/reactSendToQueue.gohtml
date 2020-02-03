@@ -1,0 +1,12 @@
+{{/* reactSendToQueue */}}
+{{ $thisCmd := 12 }}
+{{ $questionCmd := 1 }}
+
+{{ $sendEmoji := "📥" }}
+
+{{ if eq .Reaction.Emoji.Name $sendEmoji }}
+    {{ $question := .ReactionMessage.Content }}
+    {{ $askedBy := .ReactionMessage.Author.Mention }}
+
+    {{ execCC $questionCmd nil 0 (sdict "question" $question "askedBy" $askedBy ) }}
+{{ end }}
