@@ -4,25 +4,33 @@
 
 {{/* first get the embed pieces by calling embedExtract*/}}
 {{ if and (not .ExecData) .ReactionMessage.Embeds }}
-{{ $done := (cslice "✅" "❌") }}
-{{ $reactionAdded := .ReactionAdded }}
-{{ $isDoneReaction := (in $done .Reaction.Emoji.Name) }}
-{{ $id := .ReactionMessage.ID }}
+    {{ $done := (cslice "✅" "❌") }}
+    {{ $reactionAdded := .ReactionAdded }}
+    {{ $isDoneReaction := (in $done .Reaction.Emoji.Name) }}
+    {{ $id := .ReactionMessage.ID }}
 
-{{ execCC $extractCmd nil 0 (sdict "id" $id "caller" $thisCmd "args" (sdict "reactionAdded" $reactionAdded "isDoneReaction" $isDoneReaction) ) }}
+    {{ execCC $extractCmd nil 0 (sdict
+        "channel" .Channel.ID
+        "id" $id
+        "caller" $thisCmd
+        "args" (sdict
+            "reactionAdded" $reactionAdded
+            "isDoneReaction" $isDoneReaction
+    )) }}
 {{ end }}
 
 {{/* embedExtract calls back with the extracted pieces */}}
 {{ if .ExecData }}
-{{ $id := .ExecData.id }}
-{{ $extract := .ExecData.extract }}
-{{ $reactionAdded := .ExecData.args.reactionAdded }}
-{{ $isDoneReaction := .ExecData.args.isDoneReaction }}
+    {{ $channel := .ExecData.channel }}
+    {{ $id := .ExecData.id }}
+    {{ $extract := .ExecData.extract }}
+    {{ $reactionAdded := .ExecData.args.reactionAdded }}
+    {{ $isDoneReaction := .ExecData.args.isDoneReaction }}
 
-{{ if and $isDoneReaction $reactionAdded }}
-{{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "footer" $extract.footer "fields" $extract.fields) }}
+    {{ if and $isDoneReaction $reactionAdded }}
+        {{ editMessage $channel $id (cembed "title" $extract.title "description" $extract.description "footer" $extract.footer "fields" $extract.fields) }}
 
-{{ else if and $isDoneReaction }}
-{{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" 16711680 "footer" $extract.footer "fields" $extract.fields) }}
-{{ end }}
+    {{ else if and $isDoneReaction }}
+        {{ editMessage $channel $id (cembed "title" $extract.title "description" $extract.description "color" 16711680 "footer" $extract.footer "fields" $extract.fields) }}
+    {{ end }}
 {{ end }}

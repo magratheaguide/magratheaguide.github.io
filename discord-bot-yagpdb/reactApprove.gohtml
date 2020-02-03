@@ -14,14 +14,15 @@
     {{ end }}
 
     {{ if ge $countFor $threshold }}
-        {{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" true)) }}
+        {{ execCC $extractCmd nil 0 (sdict "channel" .Channel.ID "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" true)) }}
     {{ else }}
-        {{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" false)) }}
+        {{ execCC $extractCmd nil 0 (sdict "channel" .Channel.ID "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" false)) }}
     {{ end }}
 {{ end }}
 
 
 {{ if .ExecData }}
+    {{ $channel := .ExecData.channel }}
     {{ $id := .ExecData.id }}
     {{ $extract := .ExecData.extract }}
     {{ $thresholdMet := .ExecData.args.thresholdMet }}
@@ -33,5 +34,5 @@
         {{ $color = 16776960 }}
     {{ end }}
 
-    {{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" $color "footer" $extract.footer "author" $extract.author "fields" $extract.fields) }}
+    {{ editMessage $channel $id (cembed "title" $extract.title "description" $extract.description "color" $color "footer" $extract.footer "author" $extract.author "fields" $extract.fields) }}
 {{ end }}
