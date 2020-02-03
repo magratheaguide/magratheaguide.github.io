@@ -1,0 +1,6 @@
+{{ $channel := (toInt (reFind "\\d+" (index .CmdArgs 0))) }}
+{{ $id := (index .CmdArgs 1) }}
+
+{{ $msg := getMessage $channel $id }}
+
+{{ sendMessage nil (json $msg) }}
