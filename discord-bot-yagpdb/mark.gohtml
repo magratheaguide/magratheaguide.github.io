@@ -5,21 +5,24 @@
 
 {{/* first get the embed pieces by calling embedExtract*/}}
 {{ if not .ExecData }}
-    {{ $channel := $queueChannel }}
-    {{ $id := (index .CmdArgs 0) }}
-    {{ $status := (index .CmdArgs 1) }}
+    {{ if eq (len .CmdArgs) 0 }}
+        {{ sendMessage nil "Syntax is `<channel mention?> <message ID> <status>`\nChannel mention optional, defaults to queue channel\nStatus can be one of `todo`, `progress`, `ready`, `done`" }}
+    {{ else }}
+        {{ $channel := $queueChannel }}
+        {{ $id := (index .CmdArgs 0) }}
+        {{ $status := (index .CmdArgs 1) }}
 
-    {{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
-        {{ $channel = (toInt (reFind "\\d+" (index .CmdArgs 0))) }}
-        {{ $id = (index .CmdArgs 1) }}
-        {{ $status = (index .CmdArgs 2) }}
+        {{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
+            {{ $channel = (toInt (reFind "\\d+" (index .CmdArgs 0))) }}
+            {{ $id = (index .CmdArgs 1) }}
+            {{ $status = (index .CmdArgs 2) }}
+        {{ end }}
+
+        {{ execCC $extractCmd nil 0 (sdict "channel" $channel "id" $id "caller" $thisCmd "args" $status ) }}
     {{ end }}
 
-    {{ execCC $extractCmd nil 0 (sdict "channel" $channel "id" $id "caller" $thisCmd "args" $status ) }}
-{{ end }}
-
 {{/* embedExtract calls back with the extracted pieces */}}
-{{ if .ExecData }}
+{{ else if .ExecData }}
     {{ $channel := .ExecData.channel }}
     {{ $id := .ExecData.id }}
     {{ $extract := .ExecData.extract }}
