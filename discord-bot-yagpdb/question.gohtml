@@ -5,8 +5,8 @@
 {{ $question := (joinStr " " .CmdArgs) }}
 
 {{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
-{{ $channel = (reFind "\\d+" (index .CmdArgs 0)) }}
-{{ $question = (joinStr "" (slice .CmdArgs 1)) }}
+    {{ $channel = (toInt (reFind "\\d+" (index .CmdArgs 0))) }}
+    {{ $question = (joinStr " " (slice .CmdArgs 1)) }}
 {{ end }}
 
 {{/* gather pieces */}}
@@ -21,4 +21,6 @@
 {{ $embed = cembed "title" $question "color" $color "footer" (sdict "text" (joinStr " " $footerText $id)) "fields" (cslice (sdict "name" "Asked By" "value" .User.Mention "inline" true)) }}
 {{ editMessage $channel $id $embed }}
 
+{{ if ne $channel .Channel.ID }}
 {{ sendMessage nil (joinStr "" "Question added! https://discordapp.com/channels/" .Guild.ID "/" $channel "/" $id)}}
+{{ end }}
