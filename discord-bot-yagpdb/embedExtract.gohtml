@@ -10,48 +10,48 @@
 {{ $extract := sdict }}
 
 {{ if $msgEmbed.Title }}
-{{ $title := $msgEmbed.Title }}
-{{ $extract.Set "title" $title }}
+    {{ $title := $msgEmbed.Title }}
+    {{ $extract.Set "title" $title }}
 {{ end }}
 
 {{ if $msgEmbed.Description }}
-{{ $description := $msgEmbed.Description }}
-{{ $extract.Set "description" $description }}
+    {{ $description := $msgEmbed.Description }}
+    {{ $extract.Set "description" $description }}
 {{ end }}
 
 {{ if $msgEmbed.Timestamp }}
-{{ $timestamp := $msgEmbed.Timestamp }}
-{{ $extract.Set "timestamp" $timestamp }}
+    {{ $timestamp := $msgEmbed.Timestamp }}
+    {{ $extract.Set "timestamp" $timestamp }}
 {{ end }}
 
 {{ if $msgEmbed.Color }}
-{{ $color := $msgEmbed.Color }}
-{{ $extract.Set "color" $color }}
+    {{ $color := $msgEmbed.Color }}
+    {{ $extract.Set "color" $color }}
 {{ end }}
 
 {{ if $msgEmbed.Footer }}
-{{ $footer := $msgEmbed.Footer }}
-{{ $extract.Set "footer" $footer }}
+    {{ $footer := $msgEmbed.Footer }}
+    {{ $extract.Set "footer" $footer }}
 {{ end }}
 
 {{ if $msgEmbed.Image }}
-{{ $image := $msgEmbed.Image }}
-{{ $extract.Set "image" $image }}
+    {{ $image := $msgEmbed.Image }}
+    {{ $extract.Set "image" $image }}
 {{ end }}
 
 {{ if $msgEmbed.Thumbnail }}
-{{ $thumbnail := $msgEmbed.Thumbnail }}
-{{ $extract.Set "thumbnail" $thumbnail }}
+    {{ $thumbnail := $msgEmbed.Thumbnail }}
+    {{ $extract.Set "thumbnail" $thumbnail }}
 {{ end }}
 
 {{ if $msgEmbed.Author }}
-{{ $author := $msgEmbed.Author }}
-{{ $extract.Set "author" $author }}
+    {{ $author := $msgEmbed.Author }}
+    {{ $extract.Set "author" $author }}
 {{ end }}
 
 {{ if $msgEmbed.Fields }}
-{{ $fields := $msgEmbed.Fields }}
-{{ $extract.Set "fields" $fields }}
+    {{ $fields := $msgEmbed.Fields }}
+    {{ $extract.Set "fields" $fields }}
 {{ end }}
 
 {{/* send the pieces back to the calling command */}}

@@ -7,31 +7,31 @@
 {{ $thumbsUp := (cslice "👍" "👍🏻" "👍🏼" "👍🏽" "👍🏾" "👍🏿") }}
 
 {{ if and (not .ExecData) .ReactionMessage.Embeds }}
-{{ range .ReactionMessage.Reactions }}
-{{ if in $thumbsUp .Emoji.Name }}
-{{ $countFor = .Count }}
-{{ end }}
-{{ end }}
+    {{ range .ReactionMessage.Reactions }}
+        {{ if in $thumbsUp .Emoji.Name }}
+            {{ $countFor = .Count }}
+        {{ end }}
+    {{ end }}
 
-{{ if ge $countFor $threshold }}
-{{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" true)) }}
-{{ else }}
-{{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" false)) }}
-{{ end }}
+    {{ if ge $countFor $threshold }}
+        {{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" true)) }}
+    {{ else }}
+        {{ execCC $extractCmd nil 0 (sdict "id" .Reaction.MessageID "caller" $thisCmd "args" (sdict "thresholdMet" false)) }}
+    {{ end }}
 {{ end }}
 
 
 {{ if .ExecData }}
-{{ $id := .ExecData.id }}
-{{ $extract := .ExecData.extract }}
-{{ $thresholdMet := .ExecData.args.thresholdMet }}
-{{ $color := 16711680 }}
+    {{ $id := .ExecData.id }}
+    {{ $extract := .ExecData.extract }}
+    {{ $thresholdMet := .ExecData.args.thresholdMet }}
+    {{ $color := 16711680 }}
 
-{{ if $thresholdMet }}
-{{ $color = 1879160 }}
-{{ else if $extract.description }}
-{{ $color = 16776960 }}
-{{ end }}
+    {{ if $thresholdMet }}
+        {{ $color = 1879160 }}
+    {{ else if $extract.description }}
+        {{ $color = 16776960 }}
+    {{ end }}
 
-{{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" $color "footer" $extract.footer "author" $extract.author "fields" $extract.fields) }}
+    {{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" $color "footer" $extract.footer "author" $extract.author "fields" $extract.fields) }}
 {{ end }}
