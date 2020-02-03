@@ -5,7 +5,7 @@
 {{ $countFor := 0 }}
 {{ $thumbsUp := (cslice "👍" "👍🏻" "👍🏼" "👍🏽" "👍🏾" "👍🏿") }}
 
-{{ if not .ExecData }}
+{{ if and (not .ExecData) .ReactionMessage.Embeds }}
 {{ range .ReactionMessage.Reactions }}
 {{ if in $thumbsUp .Emoji.Name }}
 {{ $countFor = .Count }}
