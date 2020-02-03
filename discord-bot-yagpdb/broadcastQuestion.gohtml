@@ -5,7 +5,7 @@
 {{/* first get the embed pieces by calling embedExtract*/}}
 
 {{ if not .ExecData }}
-    {{$args := parseArgs 2 "Syntax is <channel mention> <message ID> <broadcast channel mention>"
+    {{$args := parseArgs 3 "Syntax is <channel mention> <message ID> <broadcast channel mention>"
         (carg "channel" "channel message is in")
         (carg "int" "message ID")
         (carg "channel" "channel to broadcast to")
