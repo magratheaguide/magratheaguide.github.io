@@ -6,13 +6,22 @@
 {{/* first get the embed pieces by calling embedExtract*/}}
 {{ if not .ExecData }}
     {{/* check if channel is specified, if not default */}}
+    {{ $channel := $queueChannel }}
     {{ $id := (index .CmdArgs 0) }}
     {{ $askList := (joinStr " " (slice .CmdArgs 1)) }}
-    {{ execCC $extractCmd nil 0 (sdict "id" $id "caller" $thisCmd "args" $askList ) }}
+
+    {{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
+        {{ $channel = (toInt (reFind "\\d+" (index .CmdArgs 0))) }}
+        {{ $id = (index .CmdArgs 1) }}
+        {{ $askList = (joinStr " " (slice .CmdArgs 2)) }}
+    {{ end }}
+
+    {{ execCC $extractCmd nil 0 (sdict "channel" $channel "id" $id "caller" $thisCmd "args" $askList ) }}
 {{ end }}
 
 {{/* embedExtract calls back with the extracted pieces */}}
 {{ if .ExecData }}
+    {{ $channel := .ExecData.channel }}
     {{ $id := .ExecData.id }}
     {{ $extract := .ExecData.extract }}
     {{ $askList := .ExecData.args }}
@@ -27,5 +36,6 @@
         {{ end }}
     {{ end }}
 
-    {{ editMessage nil $id (cembed "title" $extract.title "description" $extract.description "color" $extract.color "footer" $extract.footer "author" $extract.author "fields" $newFields) }}
+    {{ editMessage $channel $id (cembed "title" $extract.title "description" $extract.description "color" $extract.color "footer" $extract.footer "author" $extract.author "fields" $newFields) }}
+    {{ sendMessage nil (joinStr "" "Edited asked by! https://discordapp.com/channels/" .Guild.ID "/" $channel "/" $id)}}
 {{ end }}
