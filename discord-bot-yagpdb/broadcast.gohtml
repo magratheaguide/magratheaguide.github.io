@@ -1,6 +1,0 @@
-{{ $msgId := (index .CmdArgs 0) }}
-{{ $broadcastChannel := (reFind "\\d+" (index .CmdArgs 1)) }}
-
-{{ $msg := (index (getMessage nil $msgId).Embeds 0) }}
-
-{{ sendMessage $broadcastChannel $msg }}
