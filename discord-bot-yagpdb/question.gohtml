@@ -4,7 +4,7 @@
 {{ $channel := $queueChannel }}
 {{ $question := (joinStr " " .CmdArgs) }}
 
-{{ if (reFind "\\<#\\d+\\>" (index .CmdArgs 0)) }}
+{{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
 {{ $channel = (reFind "\\d+" (index .CmdArgs 0)) }}
 {{ $question = (joinStr "" (slice .CmdArgs 1)) }}
 {{ end }}
@@ -20,3 +20,5 @@
 {{/* go back and add message ID, now that the message has been created and that's available */}}
 {{ $embed = cembed "title" $question "color" $color "footer" (sdict "text" (joinStr " " $footerText $id)) "fields" (cslice (sdict "name" "Asked By" "value" .User.Mention "inline" true)) }}
 {{ editMessage $channel $id $embed }}
+
+{{ sendMessage nil (joinStr "" "Question added! https://discordapp.com/channels/" .Guild.ID "/" $channel "/" $id)}}

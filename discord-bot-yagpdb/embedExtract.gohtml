@@ -1,7 +1,9 @@
+{{ $channel := .ExecData.channel }}
 {{ $id := .ExecData.id }}
 {{ $caller := .ExecData.caller }}
 {{ $callerArgs := .ExecData.args }}
-{{ $msg := getMessage nil $id }}
+
+{{ $msg := getMessage $channel $id }}
 {{ $msgEmbed := (index $msg.Embeds 0) }}
 
 {{/* extract all embed pieces */}}
@@ -53,4 +55,4 @@
 {{ end }}
 
 {{/* send the pieces back to the calling command */}}
-{{ execCC $caller nil 0 (sdict "id" $id "extract" $extract "args" $callerArgs) }}
+{{ execCC $caller nil 0 (sdict "channel" $channel "id" $id "extract" $extract "args" $callerArgs) }}
