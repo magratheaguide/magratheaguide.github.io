@@ -1,12 +1,22 @@
-{{/* gather pieces */}}
+{{ $queueChannel := 672866868951908392 }}
+
+{{/* check if channel is specified, if not default */}}
+{{ $channel := $queueChannel }}
 {{ $question := (joinStr " " .CmdArgs) }}
+
+{{ if (reFind "\\<#\\d+\\>" (index .CmdArgs 0)) }}
+{{ $channel = (reFind "\\d+" (index .CmdArgs 0)) }}
+{{ $question = (joinStr "" (slice .CmdArgs 1)) }}
+{{ end }}
+
+{{/* gather pieces */}}
 {{ $color := 16711680 }}
 {{ $footerText := "Message ID:" }}
 {{ $embed := cembed "title" $question "color" $color "fields" (cslice (sdict "name" "Asked By" "value" .User.Mention "inline" true)) }}
 
 {{/* create question message */}}
-{{ $id := sendMessageRetID nil $embed }}
+{{ $id := sendMessageRetID $channel $embed }}
 
 {{/* go back and add message ID, now that the message has been created and that's available */}}
 {{ $embed = cembed "title" $question "color" $color "footer" (sdict "text" (joinStr " " $footerText $id)) "fields" (cslice (sdict "name" "Asked By" "value" .User.Mention "inline" true)) }}
-{{ editMessage nil $id $embed }}
+{{ editMessage $channel $id $embed }}
