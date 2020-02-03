@@ -4,9 +4,9 @@
 
 {{/* first get the embed pieces by calling embedExtract*/}}
 {{ if and (not .ExecData) .ReactionMessage.Embeds }}
-{{ $done := "✅" }}
+{{ $done := (cslice "✅" "❌") }}
 {{ $reactionAdded := .ReactionAdded }}
-{{ $isDoneReaction := (eq .Reaction.Emoji.Name $done) }}
+{{ $isDoneReaction := (in $done .Reaction.Emoji.Name) }}
 {{ $id := .ReactionMessage.ID }}
 
 {{ execCC $extractCmd nil 0 (sdict "id" $id "caller" $thisCmd "args" (sdict "reactionAdded" $reactionAdded "isDoneReaction" $isDoneReaction) ) }}
