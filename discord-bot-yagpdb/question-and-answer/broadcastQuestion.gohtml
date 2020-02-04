@@ -1,6 +1,8 @@
 {{ $thisCmd := 8 }}
 {{ $extractCmd := 4 }}
 
+{{ $faqChannel := 672866889772433428 }}
+
 {{/* going to need to update message ID after broadcast */}}
 {{/* first get the embed pieces by calling embedExtract*/}}
 
@@ -21,9 +23,8 @@
         "caller" $thisCmd
         "args" (sdict "broadcastChannel" $broadcastChannel)
     ) }}
-{{ end }}
 
-{{ if .ExecData }}
+{{ else if .ExecData }}
     {{ $broadcastChannel := .ExecData.args.broadcastChannel }}
     {{ $extract := .ExecData.extract }}
     {{ $footerText := "Message ID:" }}
@@ -35,9 +36,6 @@
             {{ $pingList = $element.Value }}
         {{ end }}
     {{ end }}
-
-    {{/* $msg := (index (getMessage $channel $msgId).Embeds 0) */}}
-    {{/* $broadcastID := sendMessageRetID $broadcastChannel $msg */}}
 
     {{ $broadcastID := sendMessageRetID $broadcastChannel $pingList }}
 

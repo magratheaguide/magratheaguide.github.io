@@ -1,0 +1,131 @@
+{{/* reactQuestion */}}
+{{ $thisCmd := 16 }}
+{{ $extractCmd := 4 }}
+
+{{ $faqChannel := 672866889772433428 }}
+{{ $threshold := 1 }}
+
+{{ $approveEmoji := (cslice "👍" "👍🏻" "👍🏼" "👍🏽" "👍🏾" "👍🏿") }}
+{{ $broadcastEmoji := (cslice "📣") }}
+{{ $doneEmoji := (cslice "✅" "❌") }}
+
+{{ if not .ExecData }}
+    {{ if in $approveEmoji .Reaction.Emoji.Name}}
+        {{ $countApprove := 0 }}
+        {{ $isDone := false }}
+
+        {{ range .ReactionMessage.Reactions }}
+            {{ if in $approveEmoji .Emoji.Name }}
+                {{ $countApprove = add $countApprove .Count }}
+            {{ else if in $doneEmoji .Emoji.Name }}
+                {{ $isDone = true }}
+            {{ end }}
+        {{ end }}
+
+        {{ if and (not $isDone) (ge $countApprove $threshold) }}
+            {{ execCC $extractCmd nil 0 (sdict
+                "channel" .Channel.ID
+                "id" .Reaction.MessageID
+                "caller" $thisCmd
+                "args" (sdict
+                    "reactType" "approve"
+                    "thresholdMet" true)) }}
+
+        {{ else if and (not $isDone) (not .ReactionAdded) }}
+            {{ execCC $extractCmd nil 0 (sdict
+                "channel" .Channel.ID
+                "id" .Reaction.MessageID
+                "caller" $thisCmd
+                "args" (sdict
+                    "reactType" "approve"
+                    "thresholdMet" false)) }}
+        {{ end }}
+
+    {{ else if in $doneEmoji .Reaction.Emoji.Name }}
+        {{ execCC $extractCmd nil 0 (sdict
+            "channel" .Channel.ID
+            "id" .Reaction.MessageID
+            "caller" $thisCmd
+            "args" (sdict
+                "reactType" "done"
+                "reactionAdded" .ReactionAdded)) }}
+
+    {{ else if and (in $broadcastEmoji .Reaction.Emoji.Name) .ReactionAdded }}
+        {{ execCC $extractCmd nil 0 (sdict
+            "channel" .Channel.ID
+            "id" .Reaction.MessageID
+            "caller" $thisCmd
+            "args" (sdict
+                "reactType" "broadcast")) }}
+
+    {{ end }}
+
+{{ else }}
+    {{ $channel := .ExecData.channel }}
+    {{ $id := .ExecData.id }}
+    {{ $extract := .ExecData.extract }}
+    {{ $reactType := .ExecData.args.reactType }}
+
+    {{ if eq $reactType "approve" }}
+        {{ $color := 16711680 }}
+
+        {{ if .ExecData.args.thresholdMet }}
+            {{ $color = 1879160 }}
+        {{ else if $extract.description }}
+            {{ $color = 16776960 }}
+        {{ end }}
+
+        {{ editMessage $channel $id (cembed
+            "title" $extract.title
+            "description" $extract.description
+            "color" $color
+            "footer" $extract.footer
+            "author" $extract.author
+            "fields" $extract.fields) }}
+
+    {{ else if eq $reactType "done" }}
+        {{ if .ExecData.args.reactionAdded }}
+            {{ editMessage $channel $id (cembed
+                "title" $extract.title
+                "description" $extract.description
+                "footer" $extract.footer
+                "fields" $extract.fields) }}
+
+        {{ else }}
+            {{ $color := 16711680 }}
+            {{ if $extract.description }}
+                {{ $color = 16776960 }}
+            {{ end }}
+
+            {{ editMessage $channel $id (cembed
+                "title" $extract.title
+                "description" $extract.description
+                "color" $color
+                "footer" $extract.footer
+                "fields" $extract.fields) }}
+        {{ end }}
+
+    {{ else if eq $reactType "broadcast" }}
+        {{ $footerText := "Message ID:" }}
+
+        {{ $pingListName := "Asked By" }}
+        {{ $pingList := "" }}
+        {{ range $element := $extract.fields }}
+            {{ if eq (toString $element.Name) $pingListName }}
+                {{ $pingList = $element.Value }}
+            {{ end }}
+        {{ end }}
+
+        {{ $broadcastID := sendMessageRetID $faqChannel $pingList }}
+
+        {{ $embed := cembed
+            "title" $extract.title
+            "description" $extract.description
+            "footer" (sdict "text" (joinStr " " $footerText $broadcastID))
+        }}
+
+        {{ editMessage $faqChannel $broadcastID $embed }}
+
+    {{ end }}
+
+{{ end }}
