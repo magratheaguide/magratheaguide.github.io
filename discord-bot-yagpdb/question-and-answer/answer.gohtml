@@ -5,18 +5,24 @@
 
 {{/* first get the embed pieces by calling embedExtract*/}}
 {{ if not .ExecData }}
-    {{ $channel := $queueChannel }}
-    {{ $id := (index .CmdArgs 0) }}
-    {{ $answer := (joinStr " " (slice .CmdArgs 1)) }}
+    {{ if lt (len .CmdArgs) 2 }}
+        {{ sendMessage nil "```\nusage: [channel_mention] message_id answer_text\n\nchannel mention optional, defaults to queue channel```" }}
 
-    {{/* if channel is specified, use it */}}
-    {{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
+    {{ else }}
+        {{ $channel := $queueChannel }}
+        {{ $id := (index .CmdArgs 0) }}
+        {{ $answer := (joinStr " " (slice .CmdArgs 1)) }}
+
+        {{/* if channel is specified, use it */}}
+        {{ if reFind "\\<#\\d+\\>" (index .CmdArgs 0) }}
         {{ $channel = (toInt (reFind "\\d+" (index .CmdArgs 0))) }}
         {{ $id = (index .CmdArgs 1) }}
         {{ $answer = (joinStr " " (slice .CmdArgs 2)) }}
-    {{ end }}
+        {{ end }}
 
-    {{ execCC $extractCmd nil 0 (sdict "channel" $channel "id" $id "caller" $thisCmd "args" $answer ) }}
+        {{ execCC $extractCmd nil 0 (sdict "channel" $channel "id" $id "caller" $thisCmd "args" $answer ) }}
+
+    {{ end }}
 {{ end }}
 
 {{/* embedExtract calls back with the extracted pieces */}}
