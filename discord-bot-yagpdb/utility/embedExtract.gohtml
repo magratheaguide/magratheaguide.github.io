@@ -4,55 +4,64 @@
 {{ $callerArgs := .ExecData.args }}
 
 {{ $msg := getMessage $channel $id }}
-{{ $msgEmbed := (index $msg.Embeds 0) }}
 
-{{/* extract all embed pieces */}}
-{{ $extract := sdict }}
+{{ if not $msg }}
+    {{ sendMessage nil "ERROR: Couldn't find message" }}
 
-{{ if $msgEmbed.Title }}
+{{ else if not $msg.Embeds }}
+    {{ sendMessage nil "ERROR: Message doesn't contain an embedded card" }}
+
+{{ else }}
+    {{ $msgEmbed := (index $msg.Embeds 0) }}
+
+    {{/* extract all embed pieces */}}
+    {{ $extract := sdict }}
+
+    {{ if $msgEmbed.Title }}
     {{ $title := $msgEmbed.Title }}
     {{ $extract.Set "title" $title }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Description }}
+    {{ if $msgEmbed.Description }}
     {{ $description := $msgEmbed.Description }}
     {{ $extract.Set "description" $description }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Timestamp }}
+    {{ if $msgEmbed.Timestamp }}
     {{ $timestamp := $msgEmbed.Timestamp }}
     {{ $extract.Set "timestamp" $timestamp }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Color }}
+    {{ if $msgEmbed.Color }}
     {{ $color := $msgEmbed.Color }}
     {{ $extract.Set "color" $color }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Footer }}
+    {{ if $msgEmbed.Footer }}
     {{ $footer := $msgEmbed.Footer }}
     {{ $extract.Set "footer" $footer }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Image }}
+    {{ if $msgEmbed.Image }}
     {{ $image := $msgEmbed.Image }}
     {{ $extract.Set "image" $image }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Thumbnail }}
+    {{ if $msgEmbed.Thumbnail }}
     {{ $thumbnail := $msgEmbed.Thumbnail }}
     {{ $extract.Set "thumbnail" $thumbnail }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Author }}
+    {{ if $msgEmbed.Author }}
     {{ $author := $msgEmbed.Author }}
     {{ $extract.Set "author" $author }}
-{{ end }}
+    {{ end }}
 
-{{ if $msgEmbed.Fields }}
+    {{ if $msgEmbed.Fields }}
     {{ $fields := $msgEmbed.Fields }}
     {{ $extract.Set "fields" $fields }}
-{{ end }}
+    {{ end }}
 
-{{/* send the pieces back to the calling command */}}
-{{ execCC $caller nil 0 (sdict "channel" $channel "id" $id "extract" $extract "args" $callerArgs) }}
+    {{/* send the pieces back to the calling command */}}
+    {{ execCC $caller nil 0 (sdict "channel" $channel "id" $id "extract" $extract "args" $callerArgs) }}
+{{ end }}
