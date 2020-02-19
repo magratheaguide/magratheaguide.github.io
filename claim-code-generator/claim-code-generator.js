@@ -2,6 +2,11 @@ const indent1 = "\n    ";
 const newline = "\n";
 const newlineDouble = "\n\n";
 
+/* HTML TO GENERATE:
+<div class="claim-row">
+    <span class="detail-alitus"><b>FACE_NAME</b></span> as <span class="detail-alitus no-bg text-color-MEMBERGROUP"><a href="PROFILE_URL" title="played by ALIAS">CHARACTER_NAME</a></span>
+</div>
+*/
 function generateFaceClaimCode(alias, face, group, name, url) {
     // create containing element
     var claim = document.createElement("div");
@@ -32,12 +37,18 @@ function generateFaceClaimCode(alias, face, group, name, url) {
     return claim;
 }
 
+/* HTML TO GENERATE:
+<div class="list-item level-3">
+    <span class="list-taken-by text-color-MEMBERGROUP"><a href="PROFILE_URL">CHARACTER_NAME</a></span>
+    <span class="list-aside">(OCCUPATION)</span>
+</div>
+*/
 function generateOccupationClaimCode(group, name, url, occupation) {
     // create containing element
     var claim = document.createElement("div");
     claim.className = "list-item level-3";
 
-    // create content
+    // create character content
     var claimCharacter = document.createElement("span");
     claimCharacter.className = "list-taken-by text-color-" + group;
     var claimLink = document.createElement("a");
@@ -45,13 +56,17 @@ function generateOccupationClaimCode(group, name, url, occupation) {
     claimLink.innerHTML = name;
     claimCharacter.appendChild(claimLink);
 
-    // put all the pieces together
-    claim.innerHTML += indent1;
-    claim.appendChild(claimCharacter);
+    // create occupation content (if applicable, occupation is optional)
     if (occupation) {
         var claimOccupation = document.createElement("span");
         claimOccupation.className = "list-aside";
         claimOccupation.innerHTML += "(" + occupation + ")";
+    }
+
+    // put all the pieces together
+    claim.innerHTML += indent1;
+    claim.appendChild(claimCharacter);
+    if (claimOccupation) {
         claim.innerHTML += indent1;
         claim.appendChild(claimOccupation);
     }
@@ -250,7 +265,7 @@ function generateClaimCode() {
             occupationClaim = x;
         }
 
-        // add claims to final output code
+        // add claims to final output code. note that []s (used here for bbcodes) need to be escaped
         code.innerHTML += "&#91;pathfinder&#93;\n";
         code.innerHTML += "Face claim: \n&#91;code&#93;\n";
         code.appendChild(faceClaim);
@@ -306,6 +321,6 @@ function generateClaimCode() {
 (function(){
   "use strict";
 
-  const runBtn =  document.getElementById("claim-generator-run");
+  const runBtn = document.getElementById("claim-generator-run");
   runBtn.addEventListener("click", generateClaimCode, false);
 })();
