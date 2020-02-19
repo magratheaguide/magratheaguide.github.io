@@ -36,14 +36,9 @@
 .form-claim-generator fieldset legend { grid-column: 1 / -1; }
 
 .form-claim-generator .button-claim-generator {
-    border: 1px solid;
-    box-shadow: 1px 1px 0;
     display: block;
-    font-size: var(--font-size-s);
-    font-weight: bold;
+    font-size: var(--font-size-m);
     margin: 0 auto;
-    padding: 2px 6px;
-    text-transform: uppercase;
 }
 
 .form-claim-generator .label-additional {
