@@ -1,3 +1,21 @@
+:root {
+    --font-size-xs: 0.75rem;
+    --font-size-s: 0.875rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 3rem;
+
+    --gap-xs: 4px;
+    --gap-s: 8px;
+    --gap-m: 16px;
+    --gap-l: 32px;
+    --gap-xl: 64px;
+
+    --max-post-width: 55ch;
+    --max-post-width-styled: 75ch;
+}
+
 #claim-generator-result { overflow-x: auto; }
 
 .form-claim-generator {
