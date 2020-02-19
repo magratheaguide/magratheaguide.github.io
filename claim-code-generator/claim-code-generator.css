@@ -1,3 +1,21 @@
+.generator-container {
+    --font-size-xs: 10px;
+    --font-size-s: 12px;
+    --font-size-m: 18px;
+    --font-size-l: 24px;
+    --font-size-xl: 36px;
+    --font-size-xxl: 48px;
+
+    --gap-xs: 4px;
+    --gap-s: 8px;
+    --gap-m: 16px;
+    --gap-l: 32px;
+    --gap-xl: 64px;
+
+    --max-post-width: 55ch;
+    --max-post-width-styled: 75ch;
+}
+
 .form-claim-generator {
     display: block;
     margin: 0 auto;
@@ -5,6 +23,7 @@
 }
 
 .form-claim-generator fieldset {
+    border: none;
     display: grid;
     grid-gap: var(--gap-m);
     grid-template-columns: minmax(var(--gap-s), auto) 2fr 3fr;
