@@ -1,8 +1,4 @@
-.generator-container {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: var(--max-post-width-styled);
-}
+#claim-generator-result { overflow-x: auto; }
 
 .form-claim-generator {
     display: block;
@@ -33,3 +29,9 @@
 .form-claim-generator .label-additional { font-size: var(--font-size-s); }
 
 .form-claim-generator .label-additional ul { margin-top: 0; padding-left: var(--gap-m); }
+
+.generator-container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--max-post-width-styled);
+}
