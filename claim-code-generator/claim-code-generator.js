@@ -148,7 +148,8 @@ function generateClaimCode() {
     var code = document.createElement("div");
 
     // get a handle on the place the code needs to go
-    var resultBox = document.getElementById("claim-generator-result").getElementsByClassName("code-scroll")[0];
+    var resultBox = document.getElementById("claim-generator-result").querySelector("code"); // demo version, comment out when actually using
+    // var resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
 
     // get form inputs
     class claimText {
@@ -229,7 +230,7 @@ function generateClaimCode() {
 
             while (labClaim.children.length > 0) {
                 x.appendChild(labClaim.children[0]);
-                
+
                 if (labClaim.children.length > 0) {
                     x.innerHTML += newlineDouble;
                 }
