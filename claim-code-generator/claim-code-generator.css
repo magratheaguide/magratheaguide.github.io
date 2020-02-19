@@ -1,24 +1,13 @@
 .generator-container {
-    --font-size-xs: 10px;
-    --font-size-s: 12px;
-    --font-size-m: 18px;
-    --font-size-l: 24px;
-    --font-size-xl: 36px;
-    --font-size-xxl: 48px;
-
-    --gap-xs: 4px;
-    --gap-s: 8px;
-    --gap-m: 16px;
-    --gap-l: 32px;
-    --gap-xl: 64px;
-
-    --max-post-width: 55ch;
-    --max-post-width-styled: 75ch;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--max-post-width-styled);
 }
 
 .form-claim-generator {
     display: block;
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
     max-width: var(--max-post-width);
 }
 
@@ -26,27 +15,21 @@
     border: none;
     display: grid;
     grid-gap: var(--gap-m);
-    grid-template-columns: minmax(var(--gap-s), auto) 2fr 3fr;
-    margin: var(--gap-l) auto;
+    grid-template-columns: auto 2fr 3fr;
+    margin: var(--gap-m) auto;
     padding: 0;
 }
 .form-claim-generator fieldset > label { grid-column: 2; }
-.form-claim-generator fieldset .label-additional { grid-column: 3 / -1; }
+.form-claim-generator fieldset > .label-additional { grid-column: 3 / -1; }
+.form-claim-generator fieldset > legend { grid-column: 1 / -1; }
 .form-claim-generator fieldset > :not(label):not(legend) { grid-column: 3; align-self: start; }
-.form-claim-generator fieldset legend { grid-column: 1 / -1; }
 
 .form-claim-generator .button-claim-generator {
     display: block;
     font-size: var(--font-size-m);
-    margin: 0 auto;
+    margin: var(--gap-l) auto;
 }
 
-.form-claim-generator .label-additional {
-    color: var(--text2);
-}
+.form-claim-generator .label-additional { font-size: var(--font-size-s); }
 
 .form-claim-generator .label-additional ul { margin-top: 0; padding-left: var(--gap-m); }
-
-.form-claim-generator .legend-additional {
-    margin: 0 0 var(--gap-l) calc(var(--dim-accent) + var(--gap-m));
-}
