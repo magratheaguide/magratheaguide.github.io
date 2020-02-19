@@ -1,0 +1,115 @@
+[dohtml]
+<link rel="stylesheet" href="../sitewide.css">
+<link rel="stylesheet" href="../stylesheet.css">
+<link rel="stylesheet" href="../code-lego.css">
+
+<link rel="stylesheet" href="application-review.css">
+
+<article class="post-template-pathfinder">
+    <section class="post-content">
+        <h1 class="heading-antoniadi">Application Review</h1>
+        <p>Once your profile sections are all completed, please post your claims as a reply to this post to alert staff that your app is ready for review!</p>
+
+        <p>You can generate the code you need for claims by using the following form. Copy the result and post it as is, no changes required. <b class="slowdown">Please use proper case in all fields!</b></p>
+
+        <form id="form-claim-code-generator" class="form-claim-generator">
+            <fieldset>
+                <legend>
+                    <h2 class="heading-dinorwic">Basics</h2>
+                </legend>
+
+                <label for="claim-generator-name" class="heading-dollfus">Character Name</label>
+                <input id="claim-generator-name" class="textinput" name="character-name" type="text" required>
+
+                <label for="claim-generator-group" class="heading-dollfus">Member Group</label>
+                <select id="claim-generator-group" class="forminput" name="member-group" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="crew">Crew</option>
+                    <option value="scientist">Scientist</option>
+                    <option value="passenger">Passenger</option>
+                </select>
+
+                <label for="claim-generator-url" class="heading-dollfus">Profile URL</label>
+                <input id="claim-generator-url" class="textinput" name="profile-url" type="text" required>
+
+                <label for="claim-generator-alias" class="heading-dollfus">Writer Alias</label>
+                <input id="claim-generator-alias" class="textinput" name="writer-alias" type="text" required>
+
+                <label for="claim-generator-face" class="heading-dollfus">Face Claim</label>
+                <input id="claim-generator-face" class="textinput" name="face-claim" type="text" required>
+
+                <label for="claim-generator-occupation" class="heading-dollfus">Occupation</label>
+                <input id="claim-generator-occupation" class="textinput" name="occupation" type="text">
+                <div class="label-additional">
+                    <ul>
+                        <li>If Crew, then occupation on board the Erebus.</li>
+                        <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
+                        <li>If Passenger, then list Earth occupation.</li>
+                    </ul>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h2 class="heading-dinorwic">For Scientists</h2>
+                    <p class="legend-additional">
+                        For characters in the Scientist member group. Skip this section if not applicable.
+                    </p>
+                </legend>
+
+                <label for="claim-generator-lab-name" class="heading-dollfus">Lab Name</label>
+                <input id="claim-generator-lab-name" class="textinput" name="lab-name" type="text">
+
+                <label class="heading-dollfus">Is this lab already in the Occupation Claim?</label>
+                <div class="input-group">
+                    <input id="is-not-new-lab" type="radio" name="is-new-lab" value="true">
+                    <label for="is-not-new-lab">No</label>
+                    <input id="is-new-lab" type="radio" name="is-new-lab" value="false" checked>
+                    <label for="is-new-lab">Yes</label>
+                </div>
+
+                <label class="heading-dollfus">Is this character their lab's Lead Scientist?</label>
+                <div class="input-group">
+                    <input id="is-not-lead-scientist" type="radio" name="is-lead-scientist" value="false" checked>
+                    <label for="is-not-lead-scientist">No</label>
+                    <input id="is-lead-scientist" type="radio" name="is-lead-scientist" value="true">
+                    <label for="is-lead-scientist">Yes</label>
+                </div>
+
+                <label for="claim-generator-lab-desc" class="heading-dollfus">Lab Description</label>
+                <div class="label-additional">
+                    If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
+                </div>
+                <textarea id="claim-generator-lab-desc" class="textinput" name="lab-desc" rows="10"></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h2 class="heading-dinorwic">Requested Character</h2>
+                    <p class="legend-additional">
+                        Leave blank if not applicable.
+                    </p>
+                </legend>
+
+                <label for="claim-generator-requester" class="heading-dollfus">Requested By</label>
+                <input id="claim-generator-requester" class="textinput" name="requester" type="text">
+
+                <label for="claim-generator-request-location" class="heading-dollfus">Request Location</label>
+                <input id="claim-generator-request-location" class="textinput" name="request-location" type="text">
+            </fieldset>
+
+            <button id="claim-generator-run" class="forminput button-claim-generator" form="form-claim-code-generator" type="button">Generate Code</button>
+        </form>
+
+        <div id="claim-generator-result">
+            [/dohtml]
+            [code]
+            [/code]
+            [dohtml]
+        </div>
+
+    </section>
+</article>
+
+<script src="application-review.js"></script>
+[/dohtml]

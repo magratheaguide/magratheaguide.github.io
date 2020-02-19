@@ -1,0 +1,38 @@
+.form-claim-generator {
+    display: block;
+    margin: 0 auto;
+    max-width: var(--max-post-width);
+}
+
+.form-claim-generator fieldset {
+    display: grid;
+    grid-gap: var(--gap-m);
+    grid-template-columns: minmax(var(--gap-s), auto) 2fr 3fr;
+    margin: var(--gap-l) auto;
+    padding: 0;
+}
+.form-claim-generator fieldset > label { grid-column: 2; }
+.form-claim-generator fieldset .label-additional { grid-column: 3 / -1; }
+.form-claim-generator fieldset > :not(label):not(legend) { grid-column: 3; align-self: start; }
+.form-claim-generator fieldset legend { grid-column: 1 / -1; }
+
+.form-claim-generator .button-claim-generator {
+    border: 1px solid;
+    box-shadow: 1px 1px 0;
+    display: block;
+    font-size: var(--font-size-s);
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 2px 6px;
+    text-transform: uppercase;
+}
+
+.form-claim-generator .label-additional {
+    color: var(--text2);
+}
+
+.form-claim-generator .label-additional ul { margin-top: 0; padding-left: var(--gap-m); }
+
+.form-claim-generator .legend-additional {
+    margin: 0 0 var(--gap-l) calc(var(--dim-accent) + var(--gap-m));
+}
