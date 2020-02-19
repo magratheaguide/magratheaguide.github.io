@@ -1,6 +1,8 @@
 # Magrathea
 A collection of tools, resources, and notes for Jcink sites.
 
+Be sure to check [this repo's wiki](https://github.com/littlelark/magrathea/wiki) for more detailed info on using the tools and resources provided here.
+
 ## The License
 
 As you'll see from [the included license](LICENSE), everything in this repository is free to use however you wish without any restrictions or stipulations. You don’t even have to give credit (though credit is both always appreciated and a way to help others find these resources too!).
