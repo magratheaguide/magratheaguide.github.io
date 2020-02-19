@@ -266,6 +266,7 @@ function generateClaimCode() {
         }
 
         // add claims to final output code. note that []s (used here for bbcodes) need to be escaped
+        // note that [pathfinder] is our default post bbcode
         code.innerHTML += "&#91;pathfinder&#93;\n";
         code.innerHTML += "Face claim: \n&#91;code&#93;\n";
         code.appendChild(faceClaim);
