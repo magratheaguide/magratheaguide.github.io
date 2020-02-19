@@ -1,0 +1,116 @@
+<link rel="stylesheet" href="demo-style.css"><!-- demo only, remove this line when using -->
+<link rel="stylesheet" href="claim-code-generator.css">
+
+<article class="generator-container">
+    <h1>Claim Code Generator</h1>
+
+    <p>You can generate the code you need for claims by using the following form. Copy the result and post it as is, no changes required. <b>Please use proper case in all fields!</b></p>
+
+    <form id="form-claim-code-generator" class="form-claim-generator">
+        <fieldset>
+            <legend>
+                <h2>Basics</h2>
+            </legend>
+
+            <label for="claim-generator-name">Character Name</label>
+            <input id="claim-generator-name" class="textinput" name="character-name" type="text" required>
+
+            <label for="claim-generator-group">Member Group</label>
+            <select id="claim-generator-group" name="member-group" required>
+                <option value="">--Please choose an option--</option>
+                <option value="crew">Crew</option>
+                <option value="scientist">Scientist</option>
+                <option value="passenger">Passenger</option>
+            </select>
+
+            <label for="claim-generator-url">Profile URL</label>
+            <input id="claim-generator-url" class="textinput" name="profile-url" type="text" required>
+
+            <label for="claim-generator-alias">Writer Alias</label>
+            <input id="claim-generator-alias" class="textinput" name="writer-alias" type="text" required>
+
+            <label for="claim-generator-face">Face Claim</label>
+            <input id="claim-generator-face" class="textinput" name="face-claim" type="text" required>
+
+            <label for="claim-generator-occupation">Occupation</label>
+            <input id="claim-generator-occupation" class="textinput" name="occupation" type="text">
+            <div class="label-additional">
+                <ul>
+                    <li>If Crew, then occupation on board the Erebus.</li>
+                    <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
+                    <li>If Passenger, then list Earth occupation.</li>
+                </ul>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>For Scientists</h2>
+                <p class="legend-additional">
+                    For characters in the Scientist member group. Skip this section if not applicable.
+                </p>
+            </legend>
+
+            <label for="claim-generator-lab-name">Lab Name</label>
+            <input id="claim-generator-lab-name" class="textinput" name="lab-name" type="text">
+
+            <label>Is this lab already in the Occupation Claim?</label>
+            <div class="input-group">
+                <input id="is-not-new-lab" type="radio" name="is-new-lab" value="true">
+                <label for="is-not-new-lab">No</label>
+                <input id="is-new-lab" type="radio" name="is-new-lab" value="false" checked>
+                <label for="is-new-lab">Yes</label>
+            </div>
+
+            <label>Is this character their lab's Lead Scientist?</label>
+            <div class="input-group">
+                <input id="is-not-lead-scientist" type="radio" name="is-lead-scientist" value="false" checked>
+                <label for="is-not-lead-scientist">No</label>
+                <input id="is-lead-scientist" type="radio" name="is-lead-scientist" value="true">
+                <label for="is-lead-scientist">Yes</label>
+            </div>
+
+            <label for="claim-generator-lab-desc">Lab Description</label>
+            <div class="label-additional">
+                If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
+            </div>
+            <textarea id="claim-generator-lab-desc" class="textinput" name="lab-desc" rows="10"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Requested Character</h2>
+                <p class="legend-additional">
+                    Leave blank if not applicable.
+                </p>
+            </legend>
+
+            <label for="claim-generator-requester">Requested By</label>
+            <input id="claim-generator-requester" class="textinput" name="requester" type="text">
+
+            <label for="claim-generator-request-location">Request Location</label>
+            <input id="claim-generator-request-location" class="textinput" name="request-location" type="text">
+        </fieldset>
+
+        <button id="claim-generator-run" class="forminput button-claim-generator" form="form-claim-code-generator" type="button">Generate Code</button>
+    </form>
+
+    <!-- uncomment following to use -->
+    <!-- <div id="claim-generator-result">
+        [/dohtml]
+        [code]
+        [/code]
+        [dohtml]
+    </div> -->
+
+    <!-- demo only, remove starting here... -->
+    <div id="claim-generator-result">
+        <pre><code>
+
+        </code></pre>
+    </div>
+    <!-- ...ending here -->
+
+</article>
+
+<script src="claim-code-generator.js"></script>
