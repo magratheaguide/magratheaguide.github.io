@@ -11,3 +11,5 @@ A [demo version of the generator](https://littlelark.github.io/magrathea/claim-c
 - `claim-code-generator.html` (required) is the form members will interact with
 - `claim-code-generator.js` (required) constructs the claim HTML when members submit the form
 - `claim-code-generator.css` (optional) provides bare bones styling for the demo version (and can be built upon for actual use)
+
+For more detailed usage information and tips, see [the wiki](https://github.com/littlelark/magrathea/wiki/Claim-Code-Generator%3A-Getting-Started).
