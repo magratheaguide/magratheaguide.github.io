@@ -116,15 +116,26 @@
             {{ end }}
         {{ end }}
 
-        {{ $broadcastID := sendMessageRetID $faqChannel $pingList }}
-
         {{ $embed := cembed
+            "title" $extract.title
+            "description" $extract.description
+        }}
+
+        {{ $broadcastID := sendMessageRetID $faqChannel (complexMessage
+            "content" $pingList
+            "embed" $embed
+        ) }}
+
+        {{ $embed = cembed
             "title" $extract.title
             "description" $extract.description
             "footer" (sdict "text" (joinStr " " $footerText $broadcastID))
         }}
 
-        {{ editMessage $faqChannel $broadcastID $embed }}
+        {{ editMessage $faqChannel $broadcastID (complexMessageEdit
+            "content" $pingList
+            "embed" $embed
+        ) }}
 
     {{ end }}
 
