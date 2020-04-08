@@ -1,5 +1,5 @@
 # Magrathea
-A collection of tools, resources, and notes for rp sites, primarily focused on Jcink-hosted sites.
+A collection of tools, resources, and notes for forum-based roleplaying sites, primarily focused on Jcink-hosted sites.
 
 This particular repo serves as a hub for the collection. The tools and resources themselves can be found in their own repos (to make them easier to fork) all under the [rp-magrathea org](https://github.com/rp-magrathea).
 
@@ -7,7 +7,7 @@ This particular repo serves as a hub for the collection. The tools and resources
 
 As you'll see from [the included license](LICENSE), everything in this repository is free to use however you wish without any restrictions or stipulations. You don’t even have to give credit (though credit is both always appreciated and a way to help others find these resources too!).
 
-All of the tools and resources will be provided under this same license.
+All of the tools and resources included in this project will also be provided under this same license.
 
 ## Available Tools
  - [**Claim Code Generator**](https://github.com/rp-magrathea/claim-code-generator): Automatically generates codes for claims from a form members fill out.
