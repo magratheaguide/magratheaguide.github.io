@@ -10,7 +10,7 @@ As you'll see from [the included license](LICENSE), everything in this repositor
 All of the tools and resources included in this project will also be provided under this same license.
 
 ## Available Tools
- - [**Claim Code Generator**](https://github.com/rp-magrathea/claim-code-generator): Automatically generates codes for claims from a form members fill out.
+ - [**Vogsphere**](https://github.com/rp-magrathea/vogsphere): Automatically generates claim codes for forum RP site members based on filling out a form, rather than having members directly edit code.
  - [**YAGPDB Discord Bot Custom Command Sets**](https://github.com/rp-magrathea/yagpdb-cc)
    - *Question and Answer*: Creates a queue of unanswered member questions and tracks progress on these. Can automatically send questions to the queue or answers to a designated FAQ channel using staff-limited reactions to messages.
    - *Utilities*: Supporting custom commands
