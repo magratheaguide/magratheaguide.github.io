@@ -7,6 +7,32 @@
 @import 'fontawesome-all.min.css';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700,300i,600i,700i|Raleway:600,800');
 
+@font-face {
+    font-family: 'Sling';
+    src: url('../../../magrathea/assets/fonts/sling-webfont.woff2') format('woff2'),
+         url('../../../magrathea/assets/fonts/sling-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sling';
+    src: url('../../../magrathea/assets/fonts/slingbold-webfont.woff2') format('woff2'),
+         url('../../../magrathea/assets/fonts/slingbold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Sling';
+    src: url('../../../magrathea/assets/fonts/slinglight-webfont.woff2') format('woff2'),
+         url('../../../magrathea/assets/fonts/slinglight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
 /*
 	Paradigm Shift by HTML5 UP
 	html5up.net | @ajlkn
