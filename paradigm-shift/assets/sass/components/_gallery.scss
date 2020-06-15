@@ -79,7 +79,7 @@
 			width: 100%;
 			z-index: 0;
 
-			&:before {
+			&::before {
 				@include vendor('animation', 'gallery-modal-spinner 1s infinite linear');
 				@include vendor('transition', 'opacity #{_duration(gallery-lightbox-fadein) * 0.5} ease');
 				@include vendor('transition-delay', '#{_duration(gallery-lightbox-fadein)}');
@@ -98,7 +98,7 @@
 				width: 4rem;
 			}
 
-			&:after {
+			&::after {
 				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 64 64" zoomAndPan="disable"><style>line {stroke: #{_palette(fg-bold)};stroke-width: 2px;}</style><line x1="20" y1="20" x2="44" y2="44" /><line x1="20" y1="44" x2="44" y2="20" /></svg>');
 				background-position: center;
 				background-repeat: no-repeat;
@@ -135,7 +135,7 @@
 				visibility: visible;
 				z-index: _misc(z-index-base) + 1000;
 
-				&:before {
+				&::before {
 					opacity: 1;
 				}
 			}
@@ -150,7 +150,7 @@
 					opacity: 1;
 				}
 
-				&:before {
+				&::before {
 					@include vendor('transition-delay', '0s');
 					opacity: 0;
 				}

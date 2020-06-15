@@ -173,7 +173,7 @@
 			position: relative;
 			text-transform: none;
 
-			&:before {
+			&::before {
 				border-radius: _size(border-radius);
 				border: solid 2px _palette(border);
 				content: '';
@@ -190,7 +190,7 @@
 		}
 
 		&:checked + label {
-			&:before {
+			&::before {
 				content: '\f00c';
 				background-color: _palette(accent);
 				border-color: _palette(accent);
@@ -199,7 +199,7 @@
 		}
 
 		&:focus + label {
-			&:before {
+			&::before {
 				border-color: _palette(accent);
 				box-shadow: 0 0 0 1px _palette(accent);
 			}
@@ -208,7 +208,7 @@
 
 	input[type="checkbox"] {
 		& + label {
-			&:before {
+			&::before {
 				border-radius: _size(border-radius);
 			}
 		}
@@ -216,7 +216,7 @@
 
 	input[type="radio"] {
 		& + label {
-			&:before {
+			&::before {
 				border-radius: 100%;
 			}
 		}

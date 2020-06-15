@@ -29,7 +29,7 @@
 			box-sizing: border-box;
 		}
 
-		*, *:before, *:after {
+		*, *::before, *::after {
 			box-sizing: inherit;
 		}
 
@@ -43,7 +43,7 @@
 
 		// Stops initial animations until page loads.
 			&.is-preload {
-				*, *:before, *:after {
+				*, *::before, *::after {
 					@include vendor('animation', 'none !important');
 					@include vendor('transition', 'none !important');
 				}
