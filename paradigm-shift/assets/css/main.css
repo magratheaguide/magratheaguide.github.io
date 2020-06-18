@@ -1558,6 +1558,9 @@ ol {
   padding-left: 1.25rem; }
   ol li {
     padding-left: 0.25rem; }
+  ol > li > ol
+, ol > li > ul {
+    margin-bottom: 0; }
 
 ul {
   list-style: disc;
@@ -1565,6 +1568,9 @@ ul {
   padding-left: 1rem; }
   ul li {
     padding-left: 0.325rem; }
+  ul > li > ul
+, ul > li > ol {
+    margin-bottom: 0; }
   ul.alt {
     list-style: none;
     padding-left: 0; }
