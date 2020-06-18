@@ -235,7 +235,8 @@ sup {
   position: relative;
   top: -0.5rem; }
 
-blockquote {
+aside
+, blockquote {
   border-left: solid 0.5rem rgba(95, 37, 23, 0.75);
   font-style: italic;
   margin: 0 0 2rem 0;

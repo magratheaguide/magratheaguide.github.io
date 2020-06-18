@@ -170,7 +170,8 @@
 		top: -0.5rem;
 	}
 
-	blockquote {
+	aside
+	, blockquote {
 		border-left: solid 0.5rem _palette(border);
 		font-style: italic;
 		margin: 0 0 _size(element-margin) 0;
