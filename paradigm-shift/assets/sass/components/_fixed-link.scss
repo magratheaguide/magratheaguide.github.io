@@ -1,0 +1,9 @@
+/* Fixed Link */
+.fixed-link {
+    &::before {
+        background: _palette(fg);
+        border-radius: 50%;
+        color: _palette(accent);
+        padding: 0.5rem;
+    }
+}

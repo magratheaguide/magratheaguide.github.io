@@ -2026,6 +2026,13 @@ ul.feature-icons {
         ul.feature-icons li:nth-child(2) {
           margin-top: 2rem; } }
 
+/* Fixed Link */
+.fixed-link::before {
+  background: #2F221A;
+  border-radius: 50%;
+  color: #CAB08D;
+  padding: 0.5rem; }
+
 /* Wrapper */
 #wrapper {
   position: relative;
@@ -2405,3 +2412,10 @@ body.is-ie #wrapper > section > .content > section {
 @media screen and (max-width: 1280px) {
   body.is-ie #wrapper section > footer {
     padding: 4rem; } }
+
+/* Fixed Navigation */
+.fixed-navigation {
+  bottom: 1em;
+  left: 1em;
+  position: fixed;
+  z-index: 999; }
