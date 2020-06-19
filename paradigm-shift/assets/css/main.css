@@ -191,10 +191,10 @@ h3 {
   font-size: 0.875rem; }
 
 h4 {
-  font-size: 0.875rem; }
+  font-size: 0.75rem; }
 
 h5 {
-  font-size: 0.75rem; }
+  font-size: 0.625rem; }
 
 h6 {
   font-size: 0.625rem; }
@@ -2039,6 +2039,18 @@ ul.feature-icons {
   border-radius: 50%;
   color: #CAB08D;
   padding: 0.5rem; }
+
+/* Teammate Callout */
+.teammate-name {
+  font-size: 1.5rem;
+  font-weight: bold; }
+
+.teammate-icon {
+  fill: #2F221A;
+  float: right;
+  height: 10rem;
+  margin-left: 1.5rem;
+  width: 25%; }
 
 /* Wrapper */
 #wrapper {
