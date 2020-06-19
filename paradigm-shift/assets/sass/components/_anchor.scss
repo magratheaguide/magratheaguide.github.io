@@ -6,15 +6,23 @@ h1
 , h4
 , h5
 , h6 {
+
     .heading-anchor {
-        @include vendor('transition', 'color #{_duration(transition)} ease-in-out');
-        color: transparent;
+        position: relative;
+
+        &::before {
+            @include vendor('transition', 'color #{_duration(transition)} ease-in-out');
+            color: _palette(accent-alt);
+            left: -1.5em;
+            mix-blend-mode: multiply;
+            position: absolute;
+            top: 0;
+        }
     }
 
-
-    &:focus .heading-anchor
-    , &:hover .heading-anchor
-    , &:active .heading-anchor {
+    &:focus .heading-anchor::before
+    , &:hover .heading-anchor::before
+    , &:active .heading-anchor::before {
         color: _palette(fg);
     }
 }

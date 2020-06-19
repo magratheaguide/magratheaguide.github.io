@@ -2054,40 +2054,51 @@ h1
 .heading-anchor, h4
 .heading-anchor, h5
 .heading-anchor, h6 .heading-anchor {
-  -moz-transition: color 0.25s ease-in-out;
-  -webkit-transition: color 0.25s ease-in-out;
-  -ms-transition: color 0.25s ease-in-out;
-  transition: color 0.25s ease-in-out;
-  color: transparent; }
+  position: relative; }
+  h1
+.heading-anchor::before, h2
+.heading-anchor::before, h3
+.heading-anchor::before, h4
+.heading-anchor::before, h5
+.heading-anchor::before, h6 .heading-anchor::before {
+    -moz-transition: color 0.25s ease-in-out;
+    -webkit-transition: color 0.25s ease-in-out;
+    -ms-transition: color 0.25s ease-in-out;
+    transition: color 0.25s ease-in-out;
+    color: #ba986a;
+    left: -1.5em;
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 0; }
 
 h1:focus
-.heading-anchor
+.heading-anchor::before
 , h1:hover
-.heading-anchor
+.heading-anchor::before
 , h1:active
-.heading-anchor, h2:focus
-.heading-anchor
+.heading-anchor::before, h2:focus
+.heading-anchor::before
 , h2:hover
-.heading-anchor
+.heading-anchor::before
 , h2:active
-.heading-anchor, h3:focus
-.heading-anchor
+.heading-anchor::before, h3:focus
+.heading-anchor::before
 , h3:hover
-.heading-anchor
+.heading-anchor::before
 , h3:active
-.heading-anchor, h4:focus
-.heading-anchor
+.heading-anchor::before, h4:focus
+.heading-anchor::before
 , h4:hover
-.heading-anchor
+.heading-anchor::before
 , h4:active
-.heading-anchor, h5:focus
-.heading-anchor
+.heading-anchor::before, h5:focus
+.heading-anchor::before
 , h5:hover
-.heading-anchor
+.heading-anchor::before
 , h5:active
-.heading-anchor, h6:focus .heading-anchor
-, h6:hover .heading-anchor
-, h6:active .heading-anchor {
+.heading-anchor::before, h6:focus .heading-anchor::before
+, h6:hover .heading-anchor::before
+, h6:active .heading-anchor::before {
   color: #2F221A; }
 
 /* Wrapper */
