@@ -2070,7 +2070,7 @@ ul.feature-icons {
     grid-template-areas: "header content" "footer content";
     grid-template-columns: 50vw 50vw;
     grid-template-rows: 1fr; }
-    #wrapper section:first-child {
+    #wrapper section:first-of-type {
       margin-top: 0; }
     #wrapper section > header {
       grid-area: header;
