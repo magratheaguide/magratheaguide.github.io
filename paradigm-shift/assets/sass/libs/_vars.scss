@@ -1,0 +1,66 @@
+// Misc.
+	$misc: (
+		z-index-base:				10000,
+		gallery-lightbox-opacity:	0.875
+	);
+
+// Duration.
+	$duration: (
+		transition:					0.25s,
+		gallery-lightbox-fadein:	0.5s
+	);
+
+// Size.
+	$size: (
+		border-radius:			0.325rem,
+		element-height:			3rem,
+		element-margin:			2rem,
+		header-width:			25rem,
+		subheader-width:		22rem,
+		content-width:			60rem,
+		line-width:				2px,
+		form-gutter:			2rem,
+		gallery-gutter:			1.25rem,
+	);
+
+// Font.
+	$font: (
+		family:					('Source Sans Pro', Helvetica, sans-serif),
+		family-fixed:			('Courier New', monospace),
+		family-heading:			('Sling', Helvetica, sans-serif),
+		weight:					300,
+		weight-bold:			600,
+		weight-extrabold:		700,
+		weight-heading:			800,
+		weight-heading-light:	600,
+		kerning:				0.0375em,
+		kerning-heading:		0.1em,
+		kerning-heading-alt:	-0.05em
+	);
+
+	// {"bg":"#F0EBE7","icon-gradient-0":"#5F2517","icon-gradient-1":"#CAB08D","font":"#2F221A","slogan":"#43362e"}
+
+// Palette.
+	$palette: (
+		// bg:						#ffffff,
+		// fg:						#000000,
+		// fg-bold:					#000000,
+		// fg-light:				rgba(0,0,0,0.25),
+		// border:					rgba(144,144,144,0.25),
+		// border-bg:				rgba(144,144,144,0.1),
+		// accent:					#49fcd4,
+		// accent-border:			desaturate(darken(#49fcd4, 8), 30),
+		// accent-alt:				desaturate(darken(#49fcd4, 10), 20),
+		// accent-bg:				transparentize(#49fcd4, 0.75)
+
+		bg:						#F0EBE7,
+		fg:						#2F221A,
+		fg-bold:				#2F221A,
+		fg-light:				#43362e,
+		border:					transparentize(#5F2517, 0.25),
+		border-bg:				transparentize(#CAB08D, 0.1),
+		accent:					#CAB08D,
+		accent-border:			darken(#CAB08D, 8),
+		accent-alt:				darken(#CAB08D, 10),
+		accent-bg:				transparentize(#CAB08D, 0.75)
+	);
