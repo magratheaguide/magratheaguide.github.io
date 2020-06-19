@@ -25,14 +25,16 @@
 				text-align: center;
 				line-height: 2.25rem;
 				border-radius: 2.25rem;
-				display: inline-block;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
 
 				&::before {
 					font-size: 1.25rem;
 				}
 
 				&:hover {
-					background-color: _palette(border-bg);
+					background-color: _palette(accent-alt);
 				}
 			}
 		}

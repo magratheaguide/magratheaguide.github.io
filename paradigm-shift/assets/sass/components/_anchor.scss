@@ -1,0 +1,20 @@
+/* Heading Anchor */
+
+h1
+, h2
+, h3
+, h4
+, h5
+, h6 {
+    .heading-anchor {
+        @include vendor('transition', 'color #{_duration(transition)} ease-in-out');
+        color: _palette(accent-alt);
+    }
+
+
+    &:focus .heading-anchor
+    , &:hover .heading-anchor
+    , &:active .heading-anchor {
+        color: _palette(fg);
+    }
+}

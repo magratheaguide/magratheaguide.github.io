@@ -46,7 +46,9 @@
 		color: _palette(fg-bold);
 		border-bottom: dotted 1px;
 
-		&:hover {
+		&:focus
+		, &:hover
+		, &:active {
 			text-decoration: none;
 			border-bottom-color: transparent;
 		}
@@ -81,7 +83,7 @@
 	}
 
 	h1 {
-		font-family: _font(family-special);
+		font-family: _font(family-heading);
 		font-size: 5rem;
 		font-weight: _font(weight-extrabold);
 		letter-spacing: _font(kerning-heading-alt);

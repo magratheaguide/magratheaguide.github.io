@@ -271,7 +271,7 @@
 									display: block;
 									height: 0.5rem;
 									position: absolute;
-									top: 0.75rem;
+									top: 0.8rem;
 									width: 0.5rem;
 								}
 
@@ -363,14 +363,15 @@
 				left: $pad / 5;
 				position: fixed;
 				z-index: 999;
-			}
+				
+				ul {
+					display: flex;
+					flex-direction: column;
+					margin: 0;
 
-			.jump-nav-item {
-				&::before {
-					background: _palette(fg);
-					border-radius: 50%;
-					color: _palette(accent);
-					padding: 0.5rem;
+					li {
+						padding: 0;
+					}
 				}
 			}
 
