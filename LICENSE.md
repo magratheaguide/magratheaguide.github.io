@@ -1,3 +1,30 @@
+Content in this repository falls under multiple different licenses. 
+
+# Table of Contents
+1. [Oil Drop Photo](#oil-drop-photo)
+1. [Sling Font](#sling-font)
+1. [Dragon icon](#dragon-icon)
+1. [Remaining](#remaining)
+
+
+## Oil Drop Photo
+
+[Oil Drop Photo](https://unsplash.com/photos/04RhrsalOmU) by [Daniel Olah](https://unsplash.com/@danesduet) on [Unsplash](https://unsplash.com/) and used under [Unsplash's license](https://unsplash.com/license).
+
+## Sling Font
+
+[Sling font](https://www.fontsquirrel.com/fonts/Sling) provided by [Font Squirrel](https://www.fontsquirrel.com/) and used under Font Squirrel's [Freeware License](https://www.fontsquirrel.com/license/Sling).
+
+## Dragon Icon
+The [dragon icon](https://thenounproject.com/icon/2266440/) was created by [Saeful Muslim](https://thenounproject.com/rebelsaeful) of [The Noun Project](https://thenounproject.com) and is licensed as [Creative Commons CCBY](https://creativecommons.org/licenses/by/3.0/). 
+
+I, Daine, have paid The Noun Project a license fee to use this icon without attribution. This license fee is NOT transferred herein; if you wish to use this icon in your own work, you will need to pay the license fee yourself or provide proper attribution per the terms of its license.
+
+## Remaining
+
+This work, "Magrathea v1", is a derivative of ["Paradigm Shift"](https://html5up.net/paradigm-shift) by [HTML5 Up](https://html5up.net/), used under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/). 
+"Magrathea v1" (minus the above listed exceptions) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) by Cecilia Suderman (aka Daine).
+
 Creative Commons Attribution 3.0 Unported
 http://creativecommons.org/licenses/by/3.0/
 
