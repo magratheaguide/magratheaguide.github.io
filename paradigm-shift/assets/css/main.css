@@ -2058,7 +2058,7 @@ h1
   -webkit-transition: color 0.25s ease-in-out;
   -ms-transition: color 0.25s ease-in-out;
   transition: color 0.25s ease-in-out;
-  color: #ba986a; }
+  color: transparent; }
 
 h1:focus
 .heading-anchor

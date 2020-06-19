@@ -8,7 +8,7 @@ h1
 , h6 {
     .heading-anchor {
         @include vendor('transition', 'color #{_duration(transition)} ease-in-out');
-        color: _palette(accent-alt);
+        color: transparent;
     }
 
 
