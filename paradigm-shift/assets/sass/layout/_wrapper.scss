@@ -153,6 +153,7 @@
 
 		// Copyright.
 			.copyright {
+				margin-bottom: 10vh;
 				padding: 0 $pad $pad $pad;
 			}
 
@@ -356,6 +357,23 @@
 
 			}
 
+		// Jump Nav
+			.jump-nav {
+				bottom: $pad / 5;
+				left: $pad / 5;
+				position: fixed;
+				z-index: 999;
+			}
+
+			.jump-nav-item {
+				&::before {
+					background: _palette(fg);
+					border-radius: 50%;
+					color: _palette(accent);
+					padding: 0.5rem;
+				}
+			}
+
 		// Copyright.
 			.copyright {
 				color: _palette(fg-light);
@@ -534,6 +552,13 @@
 							}
 						}
 
+				}
+
+			// Jump Nav
+				.jump-nav {
+					bottom: $pad / 4;
+					left: unset;
+					right: $pad / 4;
 				}
 
 			// Copyright.

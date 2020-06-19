@@ -25,16 +25,16 @@
     </head>
 
     <body class="is-preload">
-        <a 
-            aria-label="Go to navigation" 
-            class="icon solid fa-map-marked-alt fixed-navigation fixed-link" 
-            href="#heading-navigation"
-            id="jump-to-navigation" 
-            title="Go to Navigation">
-        </a>
-
+        
         <!-- Wrapper -->
         <div id="wrapper">
+            <!-- Fixed Jump Navigation -->
+            <a 
+                aria-label="Go to navigation" 
+                class="icon solid fa-map-marked-alt jump-nav jump-nav-item" 
+                href="#heading-navigation"
+                title="Go to Navigation">
+            </a>
 
             <!-- Intro -->
             <section class="intro">
@@ -598,15 +598,18 @@
                         <div class="content">
                             <h3 class="teammate-name" id="heading-daine">Daine</h3>
 
-                            <svg class="teammate-icon">
+                            <svg 
+                                aria-label="Daine's logo icon, the calligraphic outline of a calm dragon midflight, wings raised, legs tucked, tail curled in a loop beneath"
+                                class="teammate-icon"
+                            >
                                 <use xlink:href="#icon-daine"></use>
                             </svg>
 
                             <ul>
                                 <li>Software Engineer</li>
-                                <li>Always reads the instructions</li>
                                 <li>Has a Bachelor of Science in math and computer science</li>
                                 <li>Previously a software quality assurance engineer and a database engineer</li>
+                                <li>Always reads the instructions</li>
                                 <li>Collects board games (104 and counting)</li>
                                 <li>Serious nerd who loves to help</li>
                             </ul>
@@ -652,7 +655,7 @@
                         </h2>
                     </header>
 
-                    <footer>
+                    <div class="content">
                         <ul class="items">
                             <li>
                                 <h3>Point of Contact</h3>
@@ -665,7 +668,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </footer>
+                    </div>
                 </section>
 
             <!-- Copyright -->

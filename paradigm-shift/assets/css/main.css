@@ -2033,13 +2033,6 @@ ul.feature-icons {
         ul.feature-icons li:nth-child(2) {
           margin-top: 2rem; } }
 
-/* Fixed Link */
-.fixed-link::before {
-  background: #2F221A;
-  border-radius: 50%;
-  color: #CAB08D;
-  padding: 0.5rem; }
-
 /* Teammate Callout */
 .teammate-name {
   font-size: 1.5rem;
@@ -2164,6 +2157,16 @@ ul.feature-icons {
       position: absolute;
       width: 0.5rem;
       z-index: 1; }
+  #wrapper .jump-nav {
+    bottom: 1rem;
+    left: 1rem;
+    position: fixed;
+    z-index: 999; }
+  #wrapper .jump-nav-item::before {
+    background: #2F221A;
+    border-radius: 50%;
+    color: #CAB08D;
+    padding: 0.5rem; }
   #wrapper .copyright {
     color: #43362e;
     font-size: 1rem;
@@ -2316,6 +2319,10 @@ ul.feature-icons {
               margin-left: 0; }
         #wrapper > section:last-of-type > header::after {
           display: none; }
+      #wrapper .jump-nav {
+        bottom: 1rem;
+        left: unset;
+        right: 1rem; }
       #wrapper .copyright {
         left: 0;
         width: 100%; }
@@ -2334,6 +2341,7 @@ ul.feature-icons {
         #wrapper > section.intro > header {
           padding: 8rem 4rem 5rem 4rem; }
       #wrapper .copyright {
+        margin-bottom: 10vh;
         padding: 0 4rem 4rem 4rem; } }
   @media screen and (max-width: 736px) {
     #wrapper section {
@@ -2351,6 +2359,7 @@ ul.feature-icons {
       #wrapper > section.intro > header {
         padding: 5.5rem 2rem 2.5rem 2rem; }
     #wrapper .copyright {
+      margin-bottom: 10vh;
       padding: 0 2rem 2rem 2rem; } }
   @media screen and (max-width: 360px) {
     #wrapper section {
@@ -2368,6 +2377,7 @@ ul.feature-icons {
       #wrapper > section.intro > header {
         padding: 4.875rem 1.5rem 1.875rem 1.5rem; }
     #wrapper .copyright {
+      margin-bottom: 10vh;
       padding: 0 1.5rem 1.5rem 1.5rem; } }
 
 body.is-mobile #wrapper::before {
@@ -2431,10 +2441,3 @@ body.is-ie #wrapper > section > .content > section {
 @media screen and (max-width: 1280px) {
   body.is-ie #wrapper section > footer {
     padding: 4rem; } }
-
-/* Fixed Navigation */
-.fixed-navigation {
-  bottom: 1em;
-  left: 1em;
-  position: fixed;
-  z-index: 999; }
