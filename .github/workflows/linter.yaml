@@ -1,0 +1,32 @@
+---
+name: Super-Linter
+
+on:
+    push:
+        branches:
+            - main
+            - dev
+    pull_request:
+        branches:
+            - main
+            - dev
+
+jobs:
+    build:
+        name: Lint Codebase with Super-Linter
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v2
+              with:
+                  # Full git history is needed to get a proper list of changed files within `super-linter`
+                  fetch-depth: 0
+
+            - name: Lint Codebase
+              uses: docker://ghcr.io/github/super-linter:slim-v4
+              env:
+                  DEFAULT_BRANCH: main
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  JAVASCRIPT_DEFAULT_STYLE: prettier
+                  VALIDATE_ALL_CODEBASE: false

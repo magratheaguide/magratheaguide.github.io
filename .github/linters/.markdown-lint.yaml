@@ -1,0 +1,9 @@
+---
+default: true
+
+MD007:
+    indent: 4 # Unordered list indentation
+MD013: false # Line length limit
+MD030:
+    ul_single: 3
+    ul_multi: 3 # Ordered list indentation
