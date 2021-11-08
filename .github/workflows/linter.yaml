@@ -29,4 +29,5 @@ jobs:
                   DEFAULT_BRANCH: main
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   JAVASCRIPT_DEFAULT_STYLE: prettier
+                  MARKDOWN_CONFIG_FILE: .markdownlint.yaml
                   VALIDATE_ALL_CODEBASE: false
