@@ -59,7 +59,7 @@ Writing code that’s approachable and accessible isn’t always easy, but if we
 
 ## What Resources Are Currently Available?
 
-All of the currently available Magrathea codes live as [repositories on GitHub under the Magrathea organization](https://github.com/rp-magrathea/).[^github] Only a few callouts will be featured here.
+All of the currently available Magrathea codes live as [repositories on GitHub under the Magrathea organization](https://github.com/magratheaguide/).[^github] Only a few callouts will be featured here.
 
 [^github]: If you’re not familiar with GitHub, there are a lot of great learning resources out there, including [GitHub’s own documentation](https://help.github.com/en/github) and [Learning Lab](https://lab.github.com/githubtraining/introduction-to-github).
 
@@ -69,9 +69,9 @@ As part of Magrathea, we also occasionally take on commissions to build out comp
 
 The Claim Code Generator.
 
-[Vogsphere](https://github.com/rp-magrathea/vogsphere) is a tool that enables you to create a claims form on your site. Instead of editing code, your members can just fill out that form to generate exactly what they need to post to make their claims. No more code typos for you to deal with, no more trying to sift through code for them. Win-win.
+[Vogsphere](https://github.com/magratheaguide/vogsphere) is a tool that enables you to create a claims form on your site. Instead of editing code, your members can just fill out that form to generate exactly what they need to post to make their claims. No more code typos for you to deal with, no more trying to sift through code for them. Win-win.
 
--   [Learn more about Vogsphere](https://github.com/rp-magrathea/vogsphere)
+-   [Learn more about Vogsphere](https://github.com/magratheaguide/vogsphere)
 -   [Try the Vogsphere demo](https://magrathea.guide/vogsphere/src/vogsphere.html)
 
 ## How Do Custom Commissions Work?
@@ -182,5 +182,5 @@ No, sorry. Magrathea is meant to benefit our community as much as possible, and 
 
 -   Point of contact: [Daine](#daine)
 -   [Updates and announcements](https://discord.gg/JN3KQ2D)
--   [Magrathea on GitHub](https://github.com/rp-magrathea)
+-   [Magrathea on GitHub](https://github.com/magratheaguide)
 -   [Magrathea on Discord](https://discord.gg/JN3KQ2D)
