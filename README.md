@@ -1,5 +1,5 @@
 # Magrathea
 
-Learn more about Magrathea at https://magrathea.guide.
+[Learn more about Magrathea](https://magrathea.guide) via our site.
 
-View the available code here on GitHub at https://github.com/magratheaguide.
+[View the available resources](https://github.com/magratheaguide) here on GitHub.
