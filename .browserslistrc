@@ -1,0 +1,4 @@
+# supported browsers
+
+defaults
+not ie > 0
