@@ -1,0 +1,2 @@
+# handled by pre-commit, which also sorts alphabetically
+*.json

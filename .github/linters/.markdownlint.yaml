@@ -1,0 +1,10 @@
+---
+default: true
+
+"line-length": false
+"list-marker-space":
+    ul_single: 3
+    ul_multi: 3
+"no-hard-tabs": false
+"ul-indent":
+    indent: 4

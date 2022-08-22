@@ -1,0 +1,16 @@
+---
+name: Super-Linter
+
+on:
+    push:
+        branches:
+            - main
+            - dev
+    pull_request:
+        branches:
+            - main
+            - dev
+
+jobs:
+    lint:
+        uses: thewildmage/dotfiles/.github/workflows/linter.yaml@v2.0.0
