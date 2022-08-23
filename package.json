@@ -10,5 +10,10 @@
     "main": "index.html",
     "name": "@magratheaguide/magratheaguide.github.io",
     "repository": "github:magratheaguide/magratheaguide.github.io",
+    "scripts": {
+        "build": "npx eleventy",
+        "clean": "rm -r _distribution",
+        "start": "npm run clean && npx eleventy --serve"
+    },
     "version": "2.0.0-beta"
 }
