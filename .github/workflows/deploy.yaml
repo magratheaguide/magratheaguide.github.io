@@ -34,10 +34,10 @@ jobs:
                   node-version: "12.x"
 
             - name: NPM clean install
-            - run: npm clean-install
+              run: npm clean-install
 
             - name: NPM build
-            - run: npm run build
+              run: npm run build
 
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v1
