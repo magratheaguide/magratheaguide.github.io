@@ -1,5 +1,5 @@
 module.exports = function (eleventyConfig) {
-	eleventyConfig.addPassthroughCopy("source/assets");
+	eleventyConfig.addPassthroughCopy("source/_assets");
 
 	return {
 		dataTemplateEngine: "njk",
