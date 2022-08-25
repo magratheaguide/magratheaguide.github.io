@@ -1,3 +1,6 @@
+{% set pageTitle %} {{ ([title, meta.title] | join(" | ")) if title else
+meta.title }} {% endset %}
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,24 +10,24 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 
-		<title>Magrathea</title>
+		<title>{{ pageTitle }}</title>
 		<meta
 			name="title"
-			content="Magrathea"
+			content="{{ pageTitle }}"
 		/>
 		<meta
 			property="og:title"
-			content="Magrathea"
+			content="{{ pageTitle }}"
 		/>
 
 		<meta
 			name="theme-color"
-			content="#CAB08D"
+			content="{{ meta.themeColorLight }}"
 			media="(prefers-color-scheme: light)"
 		/>
 		<meta
 			name="theme-color"
-			content="#CAB08D"
+			content="{{ meta.themeColorDark }}"
 			media="(prefers-color-scheme: dark)"
 		/>
 		<meta
@@ -34,11 +37,11 @@
 
 		<meta
 			name="description"
-			content="A collection of free, open source tools, resources, and notes for play-by-post roleplaying sites, primarily those hosted on Jcink."
+			content="{{ meta.description }}"
 		/>
 		<meta
 			property="og:description"
-			content="A collection of free, open source tools, resources, and notes for play-by-post roleplaying sites, primarily those hosted on Jcink."
+			content="{{ meta.description }}"
 		/>
 
 		<meta
@@ -47,11 +50,11 @@
 		/>
 		<meta
 			property="og:url"
-			content="https://magrathea.guide"
+			content="{{ meta.url }}"
 		/>
 		<link
 			rel="canonical"
-			href="https://magrathea.guide"
+			href="{{ meta.url }}"
 		/>
 
 		<!-- <meta
