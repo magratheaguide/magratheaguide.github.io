@@ -1,5 +1,5 @@
-{% set pageTitle %} {{ ([title, meta.title] | join(" | ")) if title else
-meta.title }} {% endset %}
+{% set pageTitle = ([title, meta.title] | join(" | ")) if title else meta.title
+%}
 
 <!DOCTYPE html>
 <html lang="en">
