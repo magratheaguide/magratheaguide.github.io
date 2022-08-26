@@ -104,6 +104,28 @@
 		data-theme="system"
 		data-js-available="false"
 	>
+		<header>
+			<a href="/">Magrathea</a>
+
+			<nav aria-label="Primary">
+				<ul>
+					{%- for navPage in (collections.all | eleventyNavigation) %}
+					<li>
+						{% if navPage.url == page.url -%}
+						<a
+							aria-current="page"
+							href="{{ navPage.url }}"
+							>{{ navPage.title }}</a
+						>
+						{%- else -%}
+						<a href="{{ navPage.url }}">{{ navPage.title }}</a>
+						{%- endif %}
+					</li>
+					{%- endfor %}
+				</ul>
+			</nav>
+		</header>
+
 		{{ content | safe }}
 	</body>
 </html>
