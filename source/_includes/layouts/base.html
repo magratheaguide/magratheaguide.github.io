@@ -110,7 +110,7 @@
 			<a href="/">Magrathea</a>
 
 			<nav aria-label="Primary">
-				<ul>
+				<ul role="list">
 					{%- for navPage in (collections.all | eleventyNavigation) %}
 					<li>
 						{% if navPage.url == page.url -%}
