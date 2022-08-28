@@ -1,9 +1,4 @@
 aside {
 	border-inline-start: 0.5ch solid;
-	margin-inline: 1ch;
 	padding-inline-start: 1ch;
-}
-
-footer {
-	border-block-start: 1px solid;
 }
