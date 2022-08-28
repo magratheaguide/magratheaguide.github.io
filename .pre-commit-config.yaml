@@ -17,7 +17,7 @@ repos:
           - id: no-commit-to-branch
             args: [--branch, master, --branch, main]
           - id: pretty-format-json
-            args: [--autofix, --indent, "4"]
+            args: [--autofix, --indent, "	"]
           - id: trailing-whitespace
     - repo: https://github.com/pre-commit/mirrors-prettier
       rev: v2.7.1

@@ -1,0 +1,150 @@
+{% set pageTitle = ([title, meta.title] | join(" | ")) if title else meta.title
+%}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+
+		<title>{{ pageTitle }}</title>
+		<meta
+			name="title"
+			content="{{ pageTitle }}"
+		/>
+		<meta
+			property="og:title"
+			content="{{ pageTitle }}"
+		/>
+
+		<meta
+			name="theme-color"
+			content="{{ meta.themeColorLight }}"
+			media="(prefers-color-scheme: light)"
+		/>
+		<meta
+			name="theme-color"
+			content="{{ meta.themeColorDark }}"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<meta
+			name="color-scheme"
+			content="light dark"
+		/>
+
+		<meta
+			name="description"
+			content="{{ meta.description }}"
+		/>
+		<meta
+			property="og:description"
+			content="{{ meta.description }}"
+		/>
+
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:url"
+			content="{{ meta.url }}"
+		/>
+		<link
+			rel="canonical"
+			href="{{ meta.url }}"
+		/>
+
+		<!-- <meta
+            property="og:image"
+            content="https://magrathea.guide/assets/images/???"
+        />
+        <meta
+            property="og:image:alt"
+            content="Alt text???"
+        /> -->
+
+		<!-- favicon -->
+		<!-- <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+            rel="icon"
+            href="/assets/images/???.svg"
+            type="image/svg+xml"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="/assets/images/???.png"
+        />
+        <link rel="manifest" href="/manifest.webmanifest" /> -->
+
+		<!-- scripts and styles -->
+		<!-- <link
+            crossorigin="anonymous"
+            integrity="sha384-ZEnykvpKcqtBhYvsDZKsHFcCphbGlWNx3wG9ycweMcUvL4IMfa0d6gv+JhT45O/X"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/thewildmage/css-reset@1.1.0/dist/reset.css"
+        /> -->
+		<!-- <link
+            rel="stylesheet"
+            href="assets/fonts/???/stylesheet.css"
+        /> -->
+		<!-- <link rel="stylesheet" href="assets/css/utopia.css" /> -->
+		<!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
+		<link
+			rel="stylesheet"
+			href="/_assets/css/temporary.css"
+		/>
+
+		<!-- <script src="main.js" type="module"></script> -->
+	</head>
+
+	<body
+		data-theme="system"
+		data-js-available="false"
+	>
+		<a href="#main">Skip to main content</a>
+
+		<header>
+			<a href="/">Magrathea</a>
+
+			<p>
+				Open source coding resources for play-by-post roleplaying sites.
+			</p>
+
+			<nav aria-label="Primary">
+				<ul role="list">
+					{%- for navPage in (collections.all | eleventyNavigation) %}
+					<li>
+						{% if navPage.url == page.url -%}
+						<a
+							aria-current="page"
+							href="{{ navPage.url }}"
+							>{{ navPage.title }}</a
+						>
+						{%- else -%}
+						<a href="{{ navPage.url }}">{{ navPage.title }}</a>
+						{%- endif %}
+					</li>
+					{%- endfor %}
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">{{ content | safe }}</main>
+
+		<footer>
+			<p>&copy; Magrathea.</p>
+
+			<span>
+				<a
+					href="https://github.com/magratheaguide/magratheaguide.github.io/blob/main/LICENSE"
+					>License</a
+				>
+
+				<a href="https://github.com/magratheaguide">GitHub</a>
+			</span>
+		</footer>
+	</body>
+</html>

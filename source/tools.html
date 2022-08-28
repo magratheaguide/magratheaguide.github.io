@@ -1,0 +1,17 @@
+---json
+{
+	"eleventyNavigation": {
+		"key": "Tools",
+		"order": 2
+	},
+	"layout": "layouts/base.html"
+}
+---
+
+{% for tool in collections.tools %}
+<article>
+	<h2>{{ tool.data.title }}</h2>
+
+	{{ tool.templateContent | safe }}
+</article>
+{% endfor %}

@@ -1,0 +1,17 @@
+---json
+{
+	"eleventyNavigation": {
+		"key": "Themes",
+		"order": 1
+	},
+	"layout": "layouts/base.html"
+}
+---
+
+{% for theme in collections.themes %}
+<article>
+	<h2>{{ theme.data.title }}</h2>
+
+	{{ theme.templateContent | safe }}
+</article>
+{% endfor %}

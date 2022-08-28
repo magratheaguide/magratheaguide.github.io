@@ -1,6 +1,7 @@
 ---
 default: true
 
+"first-line-h1": false # because of ---json front matter
 "line-length": false
 "list-marker-space":
     ul_single: 3
