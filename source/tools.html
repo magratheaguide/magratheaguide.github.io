@@ -25,7 +25,7 @@
 {% include "partials/learn-github.html" %}
 
 <!-- list tools -->
-{% for tool in collections.tools %}
+{% for tool in collections.tools | sort(false, false, "data.title") %}
 <article>
 	<h2>{{ tool.data.title }}</h2>
 
