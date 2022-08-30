@@ -27,8 +27,20 @@
 <!-- list tools -->
 {% for tool in collections.tools | sort(false, false, "data.title") %}
 <article>
-	<h2>{{ tool.data.title }}</h2>
+	<hgroup>
+		<h2>{{ tool.data.title }}</h2>
+
+		{% if tool.data.subtitle %}
+		<p>{{ tool.data.subtitle }}</p>
+		{% endif %}
+	</hgroup>
 
 	{{ tool.templateContent | safe }}
+
+	<ul>
+		{% for linkText, linkUrl in tool.data.links %}
+		<li><a href="{{ linkUrl }}">{{ linkText }}</a></li>
+		{% endfor %}
+	</ul>
 </article>
 {% endfor %}
