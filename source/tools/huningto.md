@@ -5,6 +5,7 @@
 		"Use Huningto": "https://magrathea.guide/huningto/"
 	},
 	"subtitle": "Send Discord messages via webhook",
+	"tags": "Discord",
 	"title": "Huningto"
 }
 ---

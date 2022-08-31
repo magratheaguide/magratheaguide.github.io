@@ -35,6 +35,20 @@
 		{% endif %}
 	</hgroup>
 
+	<!-- Exclude "Tools" tag since we're already here -->
+	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) %}
+
+	<!-- Only list tags if there are some that aren't "Tools" -->
+	{% if (tags | length) > 0 %}
+	<dl>
+		<dt>Tags:</dt>
+		{% for tag in tags %}
+		<dd>{{ tag }}</dd>
+		{% endfor %}
+	</dl>
+	{% endif %}
+
+	<!-- Pull in tool's content -->
 	{{ tool.templateContent | safe }}
 
 	<ul>

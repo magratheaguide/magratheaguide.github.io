@@ -4,6 +4,7 @@
 		"Cybertron on GitHub": "https://github.com/magratheaguide/cybertron"
 	},
 	"subtitle": "CLI Theme Compiler",
+	"tags": "Jcink",
 	"title": "Cybertron"
 }
 ---
