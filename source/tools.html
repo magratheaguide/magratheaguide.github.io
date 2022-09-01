@@ -35,26 +35,25 @@
 		{% endif %}
 	</hgroup>
 
-	<!-- Exclude "Tools" tag since we're already here -->
-	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) %}
-
-	<!-- Only list tags if there are some that aren't "Tools" -->
-	{% if (tags | length) > 0 %}
-	<dl>
-		<dt>Tags:</dt>
-		{% for tag in tags %}
-		<dd>{{ tag }}</dd>
-		{% endfor %}
-	</dl>
-	{% endif %}
-
-	<!-- Pull in tool's content -->
-	{{ tool.templateContent | safe }}
-
+	{{ tool.templateContent | safe }} {% if (tool.data.links | length) > 0 %}
 	<ul>
 		{% for linkText, linkUrl in tool.data.links %}
-		<li><a href="{{ linkUrl }}">{{ linkText }}</a></li>
+		<li>
+			<a href="{{ linkUrl }}">{{ linkText }}</a>
+		</li>
 		{% endfor %}
 	</ul>
+	{% endif %}
+
+	<!-- prettier-ignore -->
+	{# Exclude "Tools" tag since we're already here #}
+	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) %}
+
+	{# Only list tags if there are some that aren't "Tools" #}
+	{% if (tags | length) > 0 %}
+	<footer>
+		<p>Tags: {{ tags | stringifyList }}</p>
+	</footer>
+	{% endif %}
 </article>
 {% endfor %}
