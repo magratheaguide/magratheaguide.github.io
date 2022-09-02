@@ -22,38 +22,42 @@
 	<a href="{{ social.github }}">GitHub</a>.
 </p>
 
-{% include "partials/learn-github.html" %}
+{% include "partials/learn-github.html" -%}
 
-<!-- list tools -->
+<!-- List tools -->
 {% for tool in collections.Tools | sort(false, false, "data.title") %}
 <article>
 	<hgroup>
 		<h2>{{ tool.data.title }}</h2>
 
-		{% if tool.data.subtitle %}
+		{%- if tool.data.subtitle %}
 		<p>{{ tool.data.subtitle }}</p>
-		{% endif %}
+		{%- endif %}
 	</hgroup>
 
-	{{ tool.templateContent | safe }} {% if (tool.data.links | length) > 0 %}
+	<!-- Tool content -->
+	{{ tool.templateContent | safe }}
+
+	<!-- Tool links -->
+	{% if (tool.data.links | length) > 0 -%}
 	<ul>
-		{% for linkText, linkUrl in tool.data.links %}
+		{%- for linkText, linkUrl in tool.data.links %}
 		<li>
 			<a href="{{ linkUrl }}">{{ linkText }}</a>
 		</li>
-		{% endfor %}
+		{%- endfor %}
 	</ul>
-	{% endif %}
+	{%- endif %}
 
 	<!-- prettier-ignore -->
 	{# Exclude "Tools" tag since we're already here #}
-	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) %}
+	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) -%}
 
-	{# Only list tags if there are some that aren't "Tools" #}
-	{% if (tags | length) > 0 %}
+	<!-- Tool tags -->
+	{% if (tags | length) > 0 -%}
 	<footer>
 		<p>Tags: {{ tags | stringifyList }}</p>
 	</footer>
-	{% endif %}
+	{%- endif %}
 </article>
 {% endfor %}
