@@ -4,7 +4,8 @@
 	"description": "Magrathea's website",
 	"devDependencies": {
 		"@11ty/eleventy": "^1.0.2",
-		"@11ty/eleventy-navigation": "^0.3.5"
+		"@11ty/eleventy-navigation": "^0.3.5",
+		"prettier": "^2.7.1"
 	},
 	"homepage": "https://github.com/magratheaguide/magratheaguide.github.io#readme",
 	"license": "MIT",
@@ -14,6 +15,8 @@
 	"scripts": {
 		"build": "npx eleventy",
 		"clean": "rm -rf _distribution",
+		"format:distribution": "npx prettier --write _distribution",
+		"postbuild": "npm run format:distribution",
 		"start": "npm run clean && npx eleventy --serve"
 	},
 	"version": "2.0.0-beta"
