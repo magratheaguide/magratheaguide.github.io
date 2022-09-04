@@ -1,10 +1,14 @@
 ---json
 {
+	"eleventyComputed": {
+		"collectionKey": "{{ eleventyNavigation.key }}",
+		"title": "{{ eleventyNavigation.key }}"
+	},
 	"eleventyNavigation": {
 		"key": "Tools",
 		"order": 2
 	},
-	"layout": "layouts/base.html"
+	"layout": "layouts/collection.html"
 }
 ---
 
@@ -23,40 +27,3 @@
 </p>
 
 {% include "partials/learn-github.html" %}
-
-<!-- List tools -->
-{% for tool in collections.Tools | sort(false, false, "data.title") %}
-<article>
-	<hgroup>
-		<h2>{{ tool.data.title }}</h2>
-
-		{% if tool.data.subtitle %}
-		<p>{{ tool.data.subtitle }}</p>
-		{% endif %}
-	</hgroup>
-
-	<!-- Tool content -->
-	{{ tool.templateContent | safe }}
-
-	<!-- Tool links, if any -->
-	{% if (tool.data.links | length) > 0 %}
-	<ul>
-		{% for linkText, linkUrl in tool.data.links %}
-		<li>
-			<a href="{{ linkUrl }}">{{ linkText }}</a>
-		</li>
-		{% endfor %}
-	</ul>
-	{% endif %}
-
-	<!---->
-	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) %}
-
-	<!-- Tags, if any -->
-	{% if (tags | length) > 0 %}
-	<footer>
-		<p>Tagged: {% linkedTagsList tags %}.</p>
-	</footer>
-	{% endif %}
-</article>
-{% endfor %}

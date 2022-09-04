@@ -1,0 +1,46 @@
+---json
+{
+	"layout": "layouts/base.html"
+}
+---
+
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+<!---->
+{% for entry in collections[collectionKey] | sort(false, false, "data.title") %}
+<article>
+	<hgroup>
+		<h2>{{ entry.data.title }}</h2>
+
+		{% if entry.data.subtitle %}
+		<p>{{ entry.data.subtitle }}</p>
+		{% endif %}
+	</hgroup>
+
+	<!-- Blurb -->
+	{{ entry.templateContent | safe }}
+
+	<!-- Links, if any -->
+	{% if (entry.data.links | length) > 0 %}
+	<ul>
+		{% for linkText, linkUrl in entry.data.links %}
+		<li>
+			<a href="{{ linkUrl }}">{{ linkText }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	<!---->
+	{% set tags = (entry.data.tags | excludeOne(eleventyNavigation.key)) %}
+
+	<!-- Tags, if any -->
+	{% if (tags | length) > 0 %}
+	<footer>
+		<p>Tagged: {% linkedTagsList tags %}.</p>
+	</footer>
+	{% endif %}
+</article>
+{% endfor %}
