@@ -1,20 +1,12 @@
 {
-	"author": "thewildmage (https://thewildmage.dev)",
-	"bugs": "https://github.com/magratheaguide/magratheaguide.github.io/issues",
-	"description": "Magrathea's website",
 	"devDependencies": {
 		"@11ty/eleventy": "^1.0.2",
-		"@11ty/eleventy-navigation": "^0.3.5"
+		"@11ty/eleventy-navigation": "^0.3.5",
+		"prettier": "^2.7.1"
 	},
-	"homepage": "https://github.com/magratheaguide/magratheaguide.github.io#readme",
-	"license": "MIT",
-	"main": "index.html",
-	"name": "@magratheaguide/magratheaguide.github.io",
-	"repository": "github:magratheaguide/magratheaguide.github.io",
 	"scripts": {
-		"build": "npx eleventy",
+		"build": "npm run clean && npx eleventy",
 		"clean": "rm -rf _distribution",
 		"start": "npm run clean && npx eleventy --serve"
-	},
-	"version": "2.0.0-beta"
+	}
 }

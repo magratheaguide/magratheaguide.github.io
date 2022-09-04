@@ -1,0 +1,26 @@
+---json
+{
+	"pagination": {
+		"alias": "tag",
+		"data": "collections",
+		"filter": [
+			"all"
+		],
+		"size": 1
+	},
+	"permalink": "/tags/{{ tag | slugify }}/",
+	"eleventyComputed": {
+		"title": "Tagged \"{{ tag }}\""
+	}
+}
+---
+
+<h1>{{ title }}</h1>
+
+<ul>
+	{% for entry in collections[tag] %}
+	<li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
+	{% endfor %}
+</ul>
+
+<p>See <a href="/tags">all tags</a>.</p>

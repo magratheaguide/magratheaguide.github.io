@@ -1,17 +1,15 @@
 ---json
 {
+	"eleventyComputed": {
+		"collectionKey": "{{ eleventyNavigation.key }}",
+		"title": "{{ eleventyNavigation.key }}"
+	},
 	"eleventyNavigation": {
 		"key": "Themes",
 		"order": 1
 	},
-	"layout": "layouts/base.html"
+	"layout": "layouts/collection.html"
 }
 ---
 
-{% for theme in collections.themes %}
-<article>
-	<h2>{{ theme.data.title }}</h2>
-
-	{{ theme.templateContent | safe }}
-</article>
-{% endfor %}
+<p>TODO: Intro blurb about themes</p>

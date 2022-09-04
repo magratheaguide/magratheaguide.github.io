@@ -1,17 +1,27 @@
 ---json
 {
+	"eleventyComputed": {
+		"collectionKey": "{{ eleventyNavigation.key }}",
+		"title": "{{ eleventyNavigation.key }}"
+	},
 	"eleventyNavigation": {
 		"key": "Tools",
 		"order": 2
 	},
-	"layout": "layouts/base.html"
+	"layout": "layouts/collection.html"
 }
 ---
 
-{% for tool in collections.tools %}
-<article>
-	<h2>{{ tool.data.title }}</h2>
+<p>
+	Scripts, snippets, and other tools to help make developing and running a
+	play-by-post roleplaying game simpler. And they're all named after fictional
+	planets.
+</p>
 
-	{{ tool.templateContent | safe }}
-</article>
-{% endfor %}
+<p>
+	Note that this is just a directory; the tools themselves live each in their
+	own repository on
+	<a href="{{ social.github }}">GitHub</a>.
+</p>
+
+{% include "partials/learn-github.html" %}
