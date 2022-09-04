@@ -18,9 +18,9 @@ module.exports = function (eleventyConfig) {
 		}
 	});
 
-	eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
 	eleventyConfig.addPassthroughCopy("source/_assets");
+
+	eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
 	eleventyConfig.addTransform("prettier", function (content) {
 		const path = this.outputPath;
