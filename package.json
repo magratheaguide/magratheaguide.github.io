@@ -5,10 +5,8 @@
 		"prettier": "^2.7.1"
 	},
 	"scripts": {
-		"build": "npx eleventy",
+		"build": "npm run clean && npx eleventy",
 		"clean": "rm -rf _distribution",
-		"format:distribution": "npx prettier --write _distribution",
-		"postbuild": "npm run format:distribution",
 		"start": "npm run clean && npx eleventy --serve"
 	}
 }

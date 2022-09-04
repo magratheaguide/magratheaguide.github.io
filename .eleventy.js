@@ -1,6 +1,9 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const prettier = require("prettier");
 
 module.exports = function (eleventyConfig) {
+	// Organization is alphabetical when order doesn't matter
+
 	eleventyConfig.addFilter("excludeOne", (array, exclusion) => {
 		return array.filter((item) => item != exclusion);
 	});
@@ -18,6 +21,22 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
 	eleventyConfig.addPassthroughCopy("source/_assets");
+
+	eleventyConfig.addTransform("prettier", function (content) {
+		const path = this.outputPath;
+
+		if (!path) {
+			return content;
+		}
+
+		async function prettierFormat(content, path) {
+			let config = await prettier.resolveConfig(path);
+			config.filepath = path;
+			return prettier.format(content, config);
+		}
+
+		return prettierFormat(content, path);
+	});
 
 	return {
 		dataTemplateEngine: "njk",
