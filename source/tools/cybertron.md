@@ -3,7 +3,7 @@
 	"links": {
 		"Cybertron on GitHub": "https://github.com/magratheaguide/cybertron"
 	},
-	"subtitle": "CLI Theme Compiler",
+	"subtitle": "CLI theme compiler",
 	"tags": "Jcink",
 	"title": "Cybertron"
 }
