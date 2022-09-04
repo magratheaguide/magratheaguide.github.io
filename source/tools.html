@@ -52,10 +52,10 @@
 	<!---->
 	{% set tags = (tool.data.tags | excludeOne(eleventyNavigation.key)) %}
 
-	<!-- Tool tags, if any -->
+	<!-- Tags, if any -->
 	{% if (tags | length) > 0 %}
 	<footer>
-		<p>Tags: {{ tags | stringifyList }}</p>
+		<p>Tagged: {% linkedTagsList tags %}.</p>
 	</footer>
 	{% endif %}
 </article>

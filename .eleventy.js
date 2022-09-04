@@ -8,19 +8,24 @@ module.exports = function (eleventyConfig) {
 		return array.filter((item) => item != exclusion);
 	});
 
-	eleventyConfig.addFilter("stringifyList", (array) => {
-		// If any of the elements already contains a comma...
-		if (array.join(" ").includes(",")) {
-			// ...then separate elements with semicolons
-			return array.join("; ");
-		} else {
-			return array.join(", ");
-		}
-	});
-
 	eleventyConfig.addPassthroughCopy("source/_assets");
 
 	eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+	eleventyConfig.addShortcode("linkedTagsList", (tags) => {
+		const separator = tags.join(" ").includes(",") ? "; " : ", ";
+		let linkedTags = [];
+
+		tags.forEach((tag) => {
+			linkedTags.push(
+				`<a href="/tags/${eleventyConfig.getFilter("slugify")(
+					tag
+				)}">${tag}</a>`
+			);
+		});
+
+		return linkedTags.join(separator);
+	});
 
 	eleventyConfig.addTransform("prettier", function (content) {
 		const path = this.outputPath;
