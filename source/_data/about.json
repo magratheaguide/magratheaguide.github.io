@@ -1,0 +1,40 @@
+{
+	"thewildmage": {
+		"buyMeACoffee": [
+			{
+				"name": "GitHub Sponsors",
+				"url": "https://github.com/sponsors/thewildmage"
+			},
+			{
+				"name": "Ko-fi",
+				"url": "https://ko-fi.com/thewildmage"
+			}
+		],
+		"contact": {
+			"discord": "thewildmage#1078",
+			"email": "b0wv9szk@duck.com"
+		},
+		"elsewhere": [
+			{
+				"name": "Personal site",
+				"url": "https://thewildmage.dev"
+			},
+			{
+				"name": "GitHub",
+				"url": "https://github.com/thewildmage"
+			},
+			{
+				"name": "Glitch",
+				"url": "https://glitch.com/@thewildmage"
+			},
+			{
+				"name": "CodePen",
+				"url": "https://codepen.io/thewildmage"
+			},
+			{
+				"name": "Gallery of some past work",
+				"url": "https://ko-fi.com/thewildmage/gallery"
+			}
+		]
+	}
+}

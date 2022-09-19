@@ -169,7 +169,13 @@ meta.title else meta.title %}
 
 			<h2>Buy me a coffee</h2>
 
-			{% include "partials/buy-me-a-coffee.html" %}
+			<ul>
+				{% for entry in about.thewildmage.buyMeACoffee %}
+				<li>
+					<a href="{{ entry.url }}">{{ entry.name }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</footer>
 	</body>
 </html>
