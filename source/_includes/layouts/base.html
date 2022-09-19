@@ -111,7 +111,7 @@ meta.title else meta.title %}
 
 			<p>{{ meta.description }}</p>
 
-			<nav aria-label="Primary">
+			<nav>
 				<ul role="list">
 					{%- for navPage in (collections.all | eleventyNavigation) %}
 					<li>
@@ -133,16 +133,37 @@ meta.title else meta.title %}
 		<main id="main">{{ content | safe }}</main>
 
 		<footer>
-			<p>&copy; Magrathea.</p>
-
-			<span>
+			<p>
+				&copy; Magrathea. Available under an
 				<a
 					href="https://github.com/magratheaguide/magratheaguide.github.io/blob/main/LICENSE"
-					>License</a
-				>
+					>MIT License</a
+				>.
+			</p>
 
-				<a href="https://github.com/magratheaguide">GitHub</a>
-			</span>
+			<ul role="list">
+				<li>
+					<a href="/accessibility-statement"
+						>Accessibility statement</a
+					>
+				</li>
+				<li>
+					<a href="https://github.com/magratheaguide"
+						>Magrathea on GitHub</a
+					>
+				</li>
+				<li>
+					<a href="https://github.com/orgs/magratheaguide/discussions"
+						>Discussions and ideas</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://github.com/magratheaguide/magratheaguide.github.io/issues/new?assignees=thewildmage&amp;labels=bug%2Ctriage&amp;template=bug_report.yml"
+						>Report a bug</a
+					>
+				</li>
+			</ul>
 		</footer>
 	</body>
 </html>
