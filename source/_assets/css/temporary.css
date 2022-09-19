@@ -3,7 +3,7 @@ aside {
 	padding-inline-start: 1ch;
 }
 
-footer {
+body > footer {
 	border-block-start: 0.5ch solid;
 	margin-block-start: 1ch;
 }
