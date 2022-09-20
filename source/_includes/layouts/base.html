@@ -1,5 +1,5 @@
-{% set pageTitle = ([title, meta.title] | join(" | ")) if title else meta.title
-%}
+{% set pageTitle = ([title, meta.title] | join(" | ")) if title and title !=
+meta.title else meta.title %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,11 +109,9 @@
 		<header>
 			<a href="/">Magrathea</a>
 
-			<p>
-				Open source coding resources for play-by-post roleplaying sites.
-			</p>
+			<p>{{ meta.description }}</p>
 
-			<nav aria-label="Primary">
+			<nav>
 				<ul role="list">
 					{%- for navPage in (collections.all | eleventyNavigation) %}
 					<li>
@@ -135,16 +133,46 @@
 		<main id="main">{{ content | safe }}</main>
 
 		<footer>
-			<p>&copy; Magrathea.</p>
-
-			<span>
+			<p>
+				&copy; Magrathea. Available under an
 				<a
 					href="https://github.com/magratheaguide/magratheaguide.github.io/blob/main/LICENSE"
-					>License</a
-				>
+					>MIT License</a
+				>.
+			</p>
 
-				<a href="https://github.com/magratheaguide">GitHub</a>
-			</span>
+			<h2>More Magrathea</h2>
+
+			<ul role="list">
+				<li>
+					<a href="/accessibility-statement"
+						>Accessibility statement</a
+					>
+				</li>
+				<li>
+					<a href="{{ meta.externalUrls.github }}"
+						>Magrathea on GitHub</a
+					>
+				</li>
+				<li>
+					<a href="{{ meta.externalUrls.discuss }}"
+						>Discussions and ideas</a
+					>
+				</li>
+				<li>
+					<a href="{{ meta.externalUrls.bugReport }}">Report a bug</a>
+				</li>
+			</ul>
+
+			<h2>Buy me a coffee</h2>
+
+			<ul>
+				{% for entry in about.thewildmage.buyMeACoffee %}
+				<li>
+					<a href="{{ entry.url }}">{{ entry.name }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</footer>
 	</body>
 </html>

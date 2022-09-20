@@ -1,0 +1,58 @@
+---json
+{
+	"eleventyNavigation": {
+		"key": "About",
+		"order": 4
+	}
+}
+---
+
+<h1>{{ eleventyNavigation.key }}</h1>
+
+<p>
+	I’m <code>thewildmage</code>. You might know me better by my name, Cecilia,
+	or my writing alias, Daine. I use she/her pronouns.
+</p>
+
+<p>
+	I’m a software engineer. I have a Bachelor of Science in Mathematics and
+	Computer Science. I have professional experience as both a software quality
+	assurance engineer and a database engineer. And I&#39;ve made a hobby of
+	front-end web development, where I advocate strongly for accessibility,
+	inclusivity, usability, and open source.
+</p>
+
+<p>
+	I created Magrathea because I believe that collaboration can be magical. If
+	you’ve participated in the play-by-post roleplaying community before, you
+	may agree. But you’ve also likely come up against barriers to accessibility,
+	inclusivity, and usability because such barriers are, sadly, rampant in this
+	space. This hobby is something special and unique, and I hate to see it
+	dampened. Magrathea is my way of doing something about that.
+</p>
+
+<h2>Contact</h2>
+
+You can message me on Discord at
+<code>{{ about.thewildmage.contact.discord }}</code> or
+<a href="mailto:{{ about.thewildmage.contact.email }}">email me</a>.
+
+<h2>Elsewhere</h2>
+
+<ul>
+	{% for entry in about.thewildmage.elsewhere %}
+	<li>
+		<a href="{{ entry.url }}">{{ entry.name }}</a>
+	</li>
+	{% endfor %}
+</ul>
+
+<h2>Buy me a coffee</h2>
+
+<ul>
+	{% for entry in about.thewildmage.buyMeACoffee %}
+	<li>
+		<a href="{{ entry.url }}">{{ entry.name }}</a>
+	</li>
+	{% endfor %}
+</ul>
