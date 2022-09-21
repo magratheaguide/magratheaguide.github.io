@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
 			https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
 			and
 			https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader
-		*/
+			*/
 
 			if (!id) {
 				id = eleventyConfig.getFilter("slugify")(heading);
