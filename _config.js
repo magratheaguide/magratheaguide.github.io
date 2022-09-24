@@ -6,4 +6,6 @@ const site = lume({
 	src: "./source",
 });
 
+site.loadAssets([".css"]);
+
 export default site;
