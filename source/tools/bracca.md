@@ -1,12 +1,9 @@
----json
-{
-	"links": {
-		"Bracca on GitHub": "https://github.com/magratheaguide/bracca"
-	},
-	"subtitle": "Theme utility scripts",
-	"tags": "Jcink",
-	"title": "Bracca"
-}
+---
+links:
+    Bracca on GitHub: https://github.com/magratheaguide/bracca
+subtitle: Theme utility scripts
+tags: Jcink
+title: Bracca
 ---
 
 A collection of random little utility scripts useful in custom themes.

@@ -1,18 +1,13 @@
----json
-{
-	"pagination": {
-		"alias": "tag",
-		"data": "collections",
-		"filter": [
-			"all"
-		],
-		"size": 1
-	},
-	"permalink": "/tags/{{ tag | slugify }}/",
-	"eleventyComputed": {
-		"title": "Tagged \"{{ tag }}\""
-	}
-}
+---
+pagination:
+  alias: tag
+  data: collections
+  filter:
+    - all
+  size: 1
+permalink: /tags/{{ tag | slugify }}/
+eleventyComputed:
+  title: Tagged "{{ tag }}"
 ---
 
 <h1>{{ title }}</h1>

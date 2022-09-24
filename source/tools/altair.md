@@ -1,12 +1,9 @@
----json
-{
-	"links": {
-    	"Altair on GitHub": "https://github.com/magratheaguide/altair"
-	},
-	"subtitle": "YAGPDB Discord bot custom commands",
-	"tags": "Discord",
-	"title": "Altair"
-}
+---
+links:
+    Altair on GitHub: https://github.com/magratheaguide/altair
+subtitle: YAGPDB Discord bot custom commands
+tags: Discord
+title: Altair
 ---
 
 -   [In/Out Board](https://github.com/magratheaguide/altair/tree/main/dist/yagpdb/availabilityEmbed)

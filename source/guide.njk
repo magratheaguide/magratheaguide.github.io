@@ -1,15 +1,11 @@
----json
-{
-	"eleventyComputed": {
-		"collectionKey": "{{ eleventyNavigation.key }}",
-		"title": "{{ eleventyNavigation.key }}"
-	},
-	"eleventyNavigation": {
-		"key": "Guide",
-		"order": 3
-	},
-	"layout": "layouts/collection.html"
-}
+---
+eleventyComputed:
+	collectionKey: {{ eleventyNavigation.key }}
+	title: {{ eleventyNavigation.key }}
+eleventyNavigation:
+	key: Guide
+	order: 3
+layout: layouts/collection.html
 ---
 
 <p>Coming soon!</p>
