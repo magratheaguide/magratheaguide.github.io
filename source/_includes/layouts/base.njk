@@ -113,19 +113,13 @@ meta.title else meta.title %}
 
 			<nav>
 				<ul role="list">
-					{%- for navPage in (collections.all | eleventyNavigation) %}
+					{% for entry in search.pages("navigation.order!=undefined", "navigation.order") | data %}
 					<li>
-						{% if navPage.url == page.url -%}
-						<a
-							aria-current="page"
-							href="{{ navPage.url }}"
-							>{{ navPage.title }}</a
-						>
-						{%- else -%}
-						<a href="{{ navPage.url }}">{{ navPage.title }}</a>
-						{%- endif %}
+						<a href="{{ entry.url }}"{% if entry.url == url %} aria-current="page"{% endif %}>
+							{{ entry.navigation.title or entry.title or "ERROR" }}
+						</a>
 					</li>
-					{%- endfor %}
+					{% endfor %}
 				</ul>
 			</nav>
 		</header>
