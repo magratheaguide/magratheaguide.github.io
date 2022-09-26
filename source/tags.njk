@@ -5,11 +5,9 @@ title: Tags
 <h1>{{ title }}</h1>
 
 <ul>
-	{% for tag, content in collections %}
-	<!---->
-	{% if tag != "all" %} {% set tagUrl %}/tags/{{ tag | slugify }}{% endset %}
-	<li><a href="{{ tagUrl }}">{{ tag }}</a></li>
-	{% endif %}
-	<!---->
+	{% for tag in (search.values("tags") | sort) %}
+	<li><a href="/tagged/{{ tag | slugify }}">{{ tag }}</a></li>
+	{% else %}
+	<li>No tags found</li>
 	{% endfor %}
 </ul>
