@@ -7,17 +7,21 @@ const site = lume({
 	src: "./source",
 });
 
+const slugify = createSlugifier();
+
+site.filter("slugify", (text) => slugify(text));
+
 site.helper(
 	"linkedHeading",
 	(level, heading, id = null) => {
 		/* Informed by:
-	https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
-	and
-	https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader
-	*/
+			https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
+			and
+			https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader
+		*/
 
 		if (!id) {
-			id = createSlugifier()(heading);
+			id = slugify(heading);
 		}
 
 		return `<h${level} id="${id}">
