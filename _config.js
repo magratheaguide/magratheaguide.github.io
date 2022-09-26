@@ -11,27 +11,30 @@ const slugify = createSlugifier();
 
 site.filter("slugify", (text) => slugify(text));
 
-site.helper(
-	"linkedHeading",
-	(level, heading, id = null) => {
-		/* Informed by:
-			https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
-			and
-			https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader
-		*/
+function linkHeadings(page) {
+	/* Informed by:
+		https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
+		and
+		https://www.leereamsnyder.com/blog/making-headings-with-links-show-up-in-safari-reader
+	*/
+	const triggerAttribute = "data-link-heading";
 
-		if (!id) {
-			id = slugify(heading);
-		}
+	page.document
+		?.querySelectorAll(`:is(h2, h3)[${triggerAttribute}]`)
+		.forEach((heading) => {
+			if (!heading.id) {
+				heading.id = slugify(heading.textContent);
+			}
 
-		return `<h${level} id="${id}">
-	<a href="#${id}">
-		<span>${heading}</span>
-	</a>
-</h${level}>`;
-	},
-	{ type: "tag" }
-);
+			heading.innerHTML = `<a href="#${heading.id}"><span>${heading.textContent}</span></a>`;
+
+			/* Note that the dataset property isn't currently available.
+			Watch https://github.com/b-fuze/deno-dom/issues/112 for changes. */
+			heading.removeAttribute(triggerAttribute);
+		});
+}
+
+site.process([".html"], linkHeadings);
 
 site.loadAssets([".css"]);
 
