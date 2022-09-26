@@ -1,6 +1,6 @@
 import lume from "lume/mod.ts";
-import { createSlugifier } from "lume/plugins/slugify_urls.ts";
 import anchorHeadings from "./plugins/anchor_headings.ts";
+import { createSlugifier } from "lume/plugins/slugify_urls.ts";
 
 const site = lume({
 	dest: "./_distribution",
