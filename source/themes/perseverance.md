@@ -1,7 +1,9 @@
 ---
 links:
-    Perseverance on GitHub: https://github.com/magratheaguide/perseverance-jcink
-    Try the Perseverance demo: https://magratheaguide.jcink.net
+    - text: Perseverance on GitHub
+      url: https://github.com/magratheaguide/perseverance-jcink
+    - text: Try the Perseverance demo
+      url: https://magratheaguide.jcink.net
 tags: Jcink
 title: Perseverance
 ---
