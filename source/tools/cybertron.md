@@ -1,6 +1,7 @@
 ---
 links:
-    Cybertron on GitHub: https://github.com/magratheaguide/cybertron
+    - text: Cybertron on GitHub
+      url: https://github.com/magratheaguide/cybertron
 subtitle: CLI theme compiler
 tags: Jcink
 title: Cybertron

@@ -1,7 +1,9 @@
 ---
 links:
-    Huningto on GitHub: https://github.com/magratheaguide/huningto
-    Use Huningto: https://magrathea.guide/huningto/
+    - text: Huningto on GitHub
+      url: https://github.com/magratheaguide/huningto
+    - text: Use Huningto
+      url: https://magrathea.guide/huningto/
 subtitle: Discord messages via webhook
 tags: Discord
 title: Huningto

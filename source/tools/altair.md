@@ -1,6 +1,7 @@
 ---
 links:
-    Altair on GitHub: https://github.com/magratheaguide/altair
+    - text: Altair on GitHub
+      url: https://github.com/magratheaguide/altair
 subtitle: YAGPDB Discord bot custom commands
 tags: Discord
 title: Altair

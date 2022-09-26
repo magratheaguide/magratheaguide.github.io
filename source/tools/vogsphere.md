@@ -1,7 +1,9 @@
 ---
 links:
-    Vogsphere on GitHub: https://github.com/magratheaguide/vogsphere
-    Try the Vogsphere demo: https://magrathea.guide/vogsphere/dist/vogsphere.html
+    - text: Vogsphere on GitHub
+      url: https://github.com/magratheaguide/vogsphere
+    - text: Try the Vogsphere demo
+      url: https://magrathea.guide/vogsphere/dist/vogsphere.html
 subtitle: The claim code generator
 title: Vogsphere
 ---

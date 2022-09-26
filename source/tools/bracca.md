@@ -1,6 +1,7 @@
 ---
 links:
-    Bracca on GitHub: https://github.com/magratheaguide/bracca
+    - text: Bracca on GitHub
+      url: https://github.com/magratheaguide/bracca
 subtitle: Theme utility scripts
 tags: Jcink
 title: Bracca
