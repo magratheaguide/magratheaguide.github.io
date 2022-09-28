@@ -1,6 +1,6 @@
 import lume from "lume/mod.ts";
-import anchorHeadings from "./plugins/anchor_headings.ts";
 import { createSlugifier } from "lume/plugins/slugify_urls.ts";
+import anchorHeadings from "./plugins/anchor_headings.ts";
 
 const site = lume({
 	dest: "./_distribution",
@@ -8,9 +8,7 @@ const site = lume({
 	src: "./source",
 });
 
-const slugify = createSlugifier();
-
-site.filter("slugify", (text) => slugify(text))
+site.filter("slugify", (text) => createSlugifier()(text))
 	.loadAssets([".css"])
 	.use(
 		anchorHeadings({

@@ -1,4 +1,8 @@
-import { createSlugifier } from "lume/plugins/slugify_urls.ts";
+import {
+	createSlugifier,
+	Options as slugifyOptions,
+	defaults as slugifyDefaults,
+} from "lume/plugins/slugify_urls.ts";
 import { merge } from "lume/core/utils.ts";
 
 import type { Page, Site } from "lume/core.ts";
@@ -9,18 +13,22 @@ export interface Options {
 
 	/** Passed to querySelectorAll to locate headings */
 	queryString: string;
+
+	/** Slugify options. See slugify_urls */
+	slugifyOptions: slugifyOptions;
 }
 
 // Default options
 export const defaults: Options = {
 	extensions: [".html"],
 	queryString: "h2, h3, h4, h5, h6",
+	slugifyOptions: slugifyDefaults,
 };
 
 /** A plugin to add anchor links to specified headings */
 export default function (userOptions?: Partial<Options>) {
 	const options = merge(defaults, userOptions);
-	const slugify = createSlugifier();
+	const slugify = createSlugifier(options.slugifyOptions);
 
 	return (site: Site) => {
 		site.process(options.extensions, anchorHeadings);
