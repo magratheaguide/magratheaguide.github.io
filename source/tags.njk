@@ -9,7 +9,7 @@ title: Tags
 {% if search | length > 0 %}
 <ul>
 	{% for tag in search | sort %}
-	<li><a href="/tagged/{{ tag | slugify }}">{{ tag }}</a></li>
+	<li><a href="/tags/{{ tag | slugify }}">{{ tag }}</a></li>
 	{% endfor %}
 </ul>
 {% else %}
