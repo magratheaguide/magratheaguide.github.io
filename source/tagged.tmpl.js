@@ -1,9 +1,7 @@
-export const layout = "layouts/collection.njk";
+export const layout = "layouts/tagged.njk";
 
 export default function* ({ search }, filters) {
 	const tags = search.values("tags");
-
-	console.log(filters);
 
 	for (const tag of tags) {
 		yield {
