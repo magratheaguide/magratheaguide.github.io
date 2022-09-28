@@ -4,10 +4,14 @@ title: Tags
 
 <h1>{{ title }}</h1>
 
+{% set search = search.values("tags") %}
+
+{% if search | length > 0 %}
 <ul>
-	{% for tag in (search.values("tags") | sort) %}
+	{% for tag in search | sort %}
 	<li><a href="/tagged/{{ tag | slugify }}">{{ tag }}</a></li>
-	{% else %}
-	<li>No tags found</li>
 	{% endfor %}
 </ul>
+{% else %}
+<p>No tags found.</p>
+{% endif %}
