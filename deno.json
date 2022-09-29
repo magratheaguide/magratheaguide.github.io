@@ -1,4 +1,10 @@
 {
+	"fmt": {
+		"options": {
+			"indentWidth": 4,
+			"useTabs": true
+		}
+	},
 	"importMap": "import_map.json",
 	"tasks": {
 		"build": "deno task lume",
