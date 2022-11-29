@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
 			}
 
 			return `<h${level} id="${id}"><a href="#${id}">${heading}</a></h${level}>`;
-		}
+		},
 	);
 
 	eleventyConfig.addShortcode("linkedTagsList", (tags) => {
@@ -36,8 +36,8 @@ module.exports = function (eleventyConfig) {
 		tags.forEach((tag) => {
 			linkedTags.push(
 				`<a href="/tags/${eleventyConfig.getFilter("slugify")(
-					tag
-				)}">${tag}</a>`
+					tag,
+				)}">${tag}</a>`,
 			);
 		});
 
