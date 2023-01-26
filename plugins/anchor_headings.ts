@@ -1,7 +1,7 @@
 import {
 	createSlugifier,
-	Options as slugifyOptions,
 	defaults as slugifyDefaults,
+	Options as slugifyOptions,
 } from "lume/plugins/slugify_urls.ts";
 import { merge } from "lume/core/utils.ts";
 
