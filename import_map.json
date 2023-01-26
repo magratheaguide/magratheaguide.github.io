@@ -1,6 +1,5 @@
 {
 	"imports": {
-		"jsBeautify": "npm:js-beautify@1.14.6",
-		"lume/": "https://deno.land/x/lume@v1.11.4/"
+		"lume/": "https://deno.land/x/lume@v1.15.1/"
 	}
 }
