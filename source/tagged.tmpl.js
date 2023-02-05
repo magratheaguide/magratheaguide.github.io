@@ -5,7 +5,7 @@ export default function* ({ search }, filters) {
 
 	for (const tag of tags) {
 		yield {
-			url: `/tags/${filters.slugify(tag)}`,
+			url: `/tags/${filters.slugify(tag)}/`,
 			searchTerm: tag,
 			title: `Tagged "${tag}"`,
 		};
