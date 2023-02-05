@@ -2,6 +2,7 @@
 	"fmt": {
 		"options": {
 			"indentWidth": 4,
+			"proseWrap": "preserve",
 			"useTabs": true
 		}
 	},
