@@ -2,6 +2,7 @@ import lume from "lume/mod.ts";
 import { createSlugifier } from "lume/plugins/slugify_urls.ts";
 
 import anchorHeadings from "./plugins/anchor_headings.ts";
+import { formatWithPrettier } from "./plugins/format.ts";
 
 const site = lume({
 	dest: "./_distribution",
@@ -10,11 +11,12 @@ const site = lume({
 });
 
 site.filter("slugify", (text) => createSlugifier()(text))
+	.loadAssets([".css"])
 	.use(
 		anchorHeadings({
 			queryString: ":is(h2, h3)[data-anchor-heading]",
 		})
 	)
-	.loadAssets([".css"]);
+	.process([".css", ".html"], formatWithPrettier);
 
 export default site;
