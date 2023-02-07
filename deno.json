@@ -9,6 +9,7 @@
 	"importMap": "import_map.json",
 	"tasks": {
 		"build": "deno task lume",
+		"cache:rebuild": "rm ./deno.lock && deno cache --reload _config.js",
 		"lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable --allow-read --allow-write=./_distribution --allow-net=0.0.0.0:3000,deno.land,cdn.deno.land --allow-sys --allow-env -",
 		"serve": "deno task lume --serve"
 	}
