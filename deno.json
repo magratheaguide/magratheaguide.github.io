@@ -6,7 +6,10 @@
 			"useTabs": true
 		}
 	},
-	"importMap": "import_map.json",
+	"imports": {
+		"lume/": "https://deno.land/x/lume@v1.15.1/",
+		"prettier": "npm:prettier@3.0.0-alpha.4"
+	},
 	"tasks": {
 		"build": "deno task lume",
 		"cache:rebuild": "rm ./deno.lock && deno cache --reload _config.js",
