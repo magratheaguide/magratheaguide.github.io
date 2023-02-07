@@ -2,7 +2,7 @@ import lume from "lume/mod.ts";
 import { createSlugifier } from "lume/plugins/slugify_urls.ts";
 
 import anchorHeadings from "./plugins/anchor_headings.ts";
-import { formatWithPrettier } from "./plugins/format.ts";
+import { formatWithPrettier } from "./plugins/format.js";
 
 const site = lume({
 	dest: "./_distribution",

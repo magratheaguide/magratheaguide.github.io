@@ -1,8 +1,6 @@
 import * as prettier from "prettier";
 
-import type { Page } from "lume/core.ts";
-
-export async function formatWithPrettier(page: Page) {
+export async function formatWithPrettier(page) {
 	try {
 		const config = await prettier.resolveConfig("./");
 		config.filepath = page.outputPath;
