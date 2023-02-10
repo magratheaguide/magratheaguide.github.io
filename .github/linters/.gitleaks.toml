@@ -1,0 +1,12 @@
+title = "Gitleaks-Magrathea Config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+[rules.allowlist]
+paths = [
+  '''Database.refactorlog''',
+  '''^deno.lock$'''
+]
