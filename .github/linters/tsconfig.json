@@ -1,0 +1,6 @@
+{
+	"extends": "https://github.com/github/super-linter/blob/main/TEMPLATES/tsconfig.json",
+	"include": [
+		"source"
+	]
+}
