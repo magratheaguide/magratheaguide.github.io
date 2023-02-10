@@ -2,11 +2,11 @@
 	"compilerOptions": {
 		"strictNullChecks": true
 	},
+	"exclude": [
+		"node_modules",
+		"_distribution"
+	],
 	"include": [
-		"src",
-		"source",
-		"plugins",
-		"tests",
-		"/tmp/lint/.automation/test"
+		"./**/*"
 	]
 }
