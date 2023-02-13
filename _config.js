@@ -15,7 +15,7 @@ site.filter("slugify", (text) => createSlugifier()(text))
 	.use(
 		anchorHeadings({
 			queryString: ":is(h2, h3)[data-anchor-heading]",
-		})
+		}),
 	)
 	.process([".css", ".html"], formatWithPrettier);
 
