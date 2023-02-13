@@ -2,6 +2,7 @@
 quoteProps: consistent
 singleAttributePerLine: true
 tabWidth: 4
+trailingComma: all
 useTabs: true
 overrides:
   - files:
