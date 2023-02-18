@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+---
+
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+{% for entry in search.pages(searchTerm, "title") %}
+<article>
+	{% if entry.data.subtitle %}
+	<hgroup>
+		<h2>{{ entry.data.title }}</h2>
+
+		<p>{{ entry.data.subtitle }}</p>
+	</hgroup>
+	{% else %}
+	<h2>{{ entry.data.title }}</h2>
+	{% endif %}
+
+	{{ entry.data.content | md | safe }}
+
+	{% if entry.data.links %}
+	<ul>
+		{% for link in entry.data.links %}
+		<li>
+			<a href="{{ link.url }}">{{ link.text }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if (entry.data.tags | length) > 0 %}
+	<footer>
+		{% set comma = joiner() %}
+		<p>
+			Tagged:
+			{%- for tag in entry.data.tags -%}
+				{{ comma() }} <a href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+			{%- endfor %}.
+		</p>
+	</footer>
+	{% endif %}
+</article>
+{% else %}
+<p>There aren't any {{ title }} resources yet. Stay tuned!</p>
+{% endfor %}
