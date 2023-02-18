@@ -1,16 +1,13 @@
----json
-{
-	"eleventyNavigation": {
-		"key": "Q&A",
-		"order": 5
-	},
-	"title": "Questions and Answers"
-}
+---
+navigation:
+  order: 5
+  title: Q&A
+title: Questions and Answers
 ---
 
 <h1>{{ title }}</h1>
 
-{% linkedHeading 2, "Why use GitHub?", "why-github" %}
+<h2 data-anchor-heading="true" id="why-github">Why use GitHub?</h2>
 
 <p>
 	<a href="https://github.com/">GitHub</a> is built on top of
@@ -37,8 +34,8 @@
 	can also be a great way to learn!
 </p>
 
-{% linkedHeading 2, "Why bother with the legalese licenses? Why not write your
-own terms?", "why-legalese-licenses" %}
+<h2 data-anchor-heading="true" id="why-legalese-licenses">Why bother with the legalese licenses? Why not write your
+own terms?</h2>
 
 <p>
 	If I come up with my own bespoke licensing terms, the odds of
@@ -101,8 +98,8 @@ own terms?", "why-legalese-licenses" %}
 	</li>
 </ul>
 
-{% linkedHeading 2, "Does this all mean you’re opposed to paid theme
-commissions?", "stance-on-paid-commissions" %}
+<h2 data-anchor-heading="true" id="stance-on-paid-commissions">Does this all mean you’re opposed to paid theme
+commissions?</h2>
 
 <p>
 	Yes and no. I lament the reality that a theme can make or break a

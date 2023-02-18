@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"strictNullChecks": true
+	},
+	"exclude": [
+		"node_modules",
+		"_distribution"
+	],
+	"include": [
+		"./**/*"
+	]
+}

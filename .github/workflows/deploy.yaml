@@ -28,21 +28,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Node
-        uses: actions/setup-node@v3
+      - name: Set up Deno
+        uses: denoland/setup-deno@v1
         with:
-          node-version: "12.x"
-
-      - name: Clean install dependencies
-        run: npm clean-install
+          deno-version: v1.x
 
       - name: Build
-        run: npm run build
+        run: deno task build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./_distribution
+          path: "./_distribution"
 
   # Deployment job
   deploy:

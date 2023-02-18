@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+---
+
+<h1>{{ title }}</h1>
+
+{% for collection in search.values("collection", searchTerm) | sort(false, false, navigation.order) %}
+<h2>{{ collection }}</h2>
+
+<ul>
+	{% for entry in search.pages(searchTerm + " collection=" + collection, "title") | data %}
+	<li>
+		<a href="{{ entry.url }}">{{ entry.title }}</a>{{ ": " + entry.subtitle if entry.subtitle }}
+	</li>
+	{% endfor %}
+</ul>
+
+{% else %}
+<p>No entries found.</p>
+{% endfor %}
+
+<p>See <a href="/tags">all tags</a>.</p>
